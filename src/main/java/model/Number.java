@@ -22,7 +22,7 @@ public class Number {
 
     private void isNumber(String number) {
         if (!NUMBER_PATTERN.matcher(number).matches()) {
-            throw new IllegalArgumentException("숫자가 아닙니다.");
+            throw new IllegalArgumentException("1~9에 있는 숫자가 아닙니다.");
         }
     }
 
