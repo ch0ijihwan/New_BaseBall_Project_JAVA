@@ -5,8 +5,8 @@ public class StatusDisplay {
 
     }
 
-    public static void showBallAndStrike(int Ball, int strike) {
-        System.out.println("Ball : " + Ball + "Strike : " + strike);
+    public static void showBallAndStrike(int ball, int strike) {
+        System.out.println("Ball : " + ball + "Strike : " + strike);
 
     }
 
