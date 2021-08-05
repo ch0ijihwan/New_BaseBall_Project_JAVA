@@ -10,7 +10,6 @@ public class Ball {
 
     }
     public static int countBall(Set<Number> inputNumbers, Set<Number> randomNumbers) {
-
         return (int) (randomNumbers.stream()
                 .filter(randomNumber -> inputNumbers.stream().anyMatch(Predicate.isEqual(randomNumber)))
                 .count()
