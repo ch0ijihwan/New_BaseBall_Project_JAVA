@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -14,8 +15,7 @@ public class EnterNumbers {
     private Set<Number> initValue(String[] tokens) {
         checkEnteredNumber(tokens);
         return Arrays.stream(tokens)
-                .map(Number::new)
-                .collect(Collectors.toSet());
+                .map(Number::new).collect(Collectors.toCollection(LinkedHashSet::new));
     }
 
     private void checkEnteredNumber(String[] token) {
