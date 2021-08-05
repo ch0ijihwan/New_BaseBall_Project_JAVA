@@ -8,14 +8,14 @@ public class Input {
     private Input() {
 
     }
-    
+
     public static String[] inputBaseballNumbers() {
         return SCANNER.next()
                 .trim()
                 .split("");
     }
 
-    public static boolean AskReplayGame() {
+    public static boolean askReplayGame() {
         return SCANNER.nextInt() == 1;
     }
 }
