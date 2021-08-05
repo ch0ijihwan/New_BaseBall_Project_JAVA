@@ -3,20 +3,19 @@ package view;
 import java.util.Scanner;
 
 public class Input {
-
-    private Input(){
-
-    }
-
     private static final Scanner SCANNER = new Scanner(System.in);
 
-    public  static String[] inputBaseBallNumbers(){
+    private Input() {
+
+    }
+    
+    public static String[] inputBaseballNumbers() {
         return SCANNER.next()
                 .trim()
                 .split("");
     }
 
-    public static boolean AskReplayGame(){
+    public static boolean AskReplayGame() {
         return SCANNER.nextInt() == 1;
     }
 }
