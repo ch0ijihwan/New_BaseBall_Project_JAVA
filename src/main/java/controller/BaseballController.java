@@ -3,7 +3,6 @@ package controller;
 import model.EnterNumbers;
 import model.RandomBaseballNumbers;
 
-import static model.score.Ball.countBall;
 import static model.score.Strike.countStrike;
 import static view.Input.inputBaseballNumbers;
 import static view.StatusDisplay.showBallAndStrike;
@@ -15,12 +14,12 @@ public class BaseballController {
 
     BaseballController() {
         enteredNumbers = new EnterNumbers(inputBaseballNumbers());
-        randomBaseballNumbers = new RandomBaseballNumbers();
+        randomBaseballNumbers = new RandomBaseballNumbers(enteredNumbers.getEnteredNumbers());
     }
 
     void playGame() {
         while (isThreeStrike()) {
-            showBallAndStrike(getBallCount(), getStrikeCount());
+            showBallAndStrike(randomBaseballNumbers.getBallCount(),randomBaseballNumbers.getStrikeCount());
             enterNumbers();
         }
         showEndGame();
@@ -28,14 +27,6 @@ public class BaseballController {
 
     void enterNumbers() {
         enteredNumbers = new EnterNumbers(inputBaseballNumbers());
-    }
-
-    int getBallCount() {
-        return countBall(enteredNumbers.getEnteredNumbers(), randomBaseballNumbers.getRandomBaseballNumbers());
-    }
-
-    int getStrikeCount() {
-        return countStrike(enteredNumbers.getEnteredNumbers(), randomBaseballNumbers.getRandomBaseballNumbers());
     }
 
     boolean isThreeStrike() {
