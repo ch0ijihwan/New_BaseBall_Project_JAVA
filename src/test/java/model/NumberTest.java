@@ -15,7 +15,7 @@ class NumberTest {
     void isNumber(String value) {
         assertThatThrownBy(() -> new Number(value))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("1~9 사이의 숫자가 아닙니다.");
+                .hasMessage("1~9에 있는 숫자가 아닙니다.");
     }
 
     @Test
