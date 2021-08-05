@@ -10,7 +10,7 @@ import static util.RandomUitl.generateRandomNumber;
 public class RandomBaseballNumbers {
     private static final int RANDOM_NUMBER_SIZE = 3;
     private final Set<Number> threeNumbers = new LinkedHashSet<>();
-    private Set<Number> enterNumbers;
+    private final Set<Number> enterNumbers;
 
     public RandomBaseballNumbers(Set<Number> enteredNumbers) {
         while (threeNumbers.size() < RANDOM_NUMBER_SIZE) {
