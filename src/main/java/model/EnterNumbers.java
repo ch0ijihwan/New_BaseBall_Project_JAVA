@@ -19,7 +19,7 @@ public class EnterNumbers {
     }
 
     private void checkEnteredNumber(String[] token) {
-        if (token.length == 3) {
+        if (token.length != 3) {
             throw new IllegalArgumentException("입력값이 3자리가 아닙니다.");
         }
     }
