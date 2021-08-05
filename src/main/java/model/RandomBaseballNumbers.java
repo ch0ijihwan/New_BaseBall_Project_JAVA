@@ -23,9 +23,10 @@ public class RandomBaseballNumbers {
         return this.threeNumbers;
     }
 
-    public int getBallCount(){
+    public int getBallCount() {
         return countBall(this.enterNumbers, this.getRandomBaseballNumbers());
     }
+
     public int getStrikeCount() {
         return countStrike(this.enterNumbers, this.getRandomBaseballNumbers());
     }
