@@ -20,13 +20,13 @@ public class BaseballController {
 
     void playGame() {
         while (isThreeStrike()) {
-            showBallAndStrike(getBallCount(),getStrikeCount());
+            showBallAndStrike(getBallCount(), getStrikeCount());
             enterNumbers();
         }
         showEndGame();
     }
 
-    void enterNumbers(){
+    void enterNumbers() {
         enteredNumbers = new EnterNumbers(inputBaseballNumbers());
     }
 
@@ -41,6 +41,4 @@ public class BaseballController {
     boolean isThreeStrike() {
         return countStrike(enteredNumbers.getEnteredNumbers(), randomBaseballNumbers.getRandomBaseballNumbers()) != 3;
     }
-
-
 }

@@ -9,7 +9,7 @@ public class GameController {
     private BaseballController baseBallController;
     private boolean isGamePlay = true;
 
-    public void run(){
+    public void run() {
         while (isGamePlay) {
             StatusDisplay.showStartGame();
             baseBallController = new BaseballController();
