@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class EnterNumbers {
+    private static final int NUMBER_LENGTH = 3;
     private final Set<Number> values;
 
     public EnterNumbers(String[] tokens) {
@@ -19,7 +20,7 @@ public class EnterNumbers {
     }
 
     private void checkEnteredNumber(String[] token) {
-        if (token.length != 3) {
+        if (token.length != NUMBER_LENGTH) {
             throw new IllegalArgumentException("입력값이 3자리가 아닙니다.");
         }
     }
