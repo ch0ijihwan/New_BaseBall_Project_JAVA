@@ -13,7 +13,6 @@ public class RandomBaseballNumbers {
             threeNumbers.add(new Number(String.valueOf(generateRandomNumber())));
         }
     }
-
     public Set<Number> getRandomBaseballNumbers() {
         return this.threeNumbers;
     }
