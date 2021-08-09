@@ -20,4 +20,8 @@ public class StatusDisplay {
     public static void showNewGameQuestion() {
         System.out.println("게임을 재실행 하려면 1을 누르세요 \n게임을 종료하시려면 2를 누르세요");
     }
+
+    public static void showRountCount(int roundCount){
+        System.out.println("현재 라운드 : " + roundCount);
+    }
 }
