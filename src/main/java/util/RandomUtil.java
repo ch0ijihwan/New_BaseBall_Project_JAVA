@@ -2,8 +2,8 @@ package util;
 
 import java.util.Random;
 
-public class RandomUitl {
-    private RandomUitl() {
+public class RandomUtil {
+    private RandomUtil() {
 
     }
 

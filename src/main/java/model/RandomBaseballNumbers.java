@@ -3,7 +3,7 @@ package model;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import static util.RandomUitl.generateRandomNumber;
+import static util.RandomUtil.generateRandomNumber;
 
 public class RandomBaseballNumbers {
     private static final int RANDOM_NUMBER_SIZE = 3;
