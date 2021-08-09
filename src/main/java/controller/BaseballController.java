@@ -2,16 +2,17 @@ package controller;
 
 import model.EnterNumbers;
 import model.RandomBaseballNumbers;
+import model.Round;
 
 import static model.score.Ball.countBall;
 import static model.score.Strike.countStrike;
 import static view.Input.inputBaseballNumbers;
-import static view.StatusDisplay.showBallAndStrike;
-import static view.StatusDisplay.showEndGame;
+import static view.StatusDisplay.*;
 
 public class BaseballController {
     private EnterNumbers enteredNumbers;
     private RandomBaseballNumbers randomBaseballNumbers;
+    private Round round = new Round();
 
     BaseballController() {
         enteredNumbers = new EnterNumbers(inputBaseballNumbers());
@@ -19,11 +20,15 @@ public class BaseballController {
     }
 
     void playGame() {
+
         while (isThreeStrike()) {
+            showRountCount(round.getRoundCount());
             showBallAndStrike(getBallCount(), getStrikeCount());
             enterNumbers();
+            round.upRoundCount();
         }
         showEndGame();
+        round.resetRoundCount();
     }
 
     void enterNumbers() {
