@@ -1,22 +1,21 @@
 package model;
 
 import java.util.Arrays;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class EnterNumbers {
     private static final int NUMBER_LENGTH = 3;
-    private final Set<Number> values;
+    private final List<Number> values;
 
     public EnterNumbers(String[] tokens) {
         this.values = initValue(tokens);
     }
 
-    private Set<Number> initValue(String[] tokens) {
+    private List<Number> initValue(String[] tokens) {
         checkEnteredNumber(tokens);
         return Arrays.stream(tokens)
-                .map(Number::new).collect(Collectors.toCollection(LinkedHashSet::new));
+                .map(Number::new).collect(Collectors.toList());
     }
 
     private void checkEnteredNumber(String[] token) {
@@ -25,7 +24,7 @@ public class EnterNumbers {
         }
     }
 
-    public Set<Number> getEnteredNumbers() {
+    public List<Number> getEnteredNumbers() {
         return this.values;
     }
 }
