@@ -2,19 +2,19 @@ package model.score;
 
 import model.Number;
 
-import java.util.Set;
-import java.util.function.Predicate;
+import java.util.List;
+import java.util.stream.IntStream;
 
 public class Ball {
     private Ball() {
 
     }
 
-    public static int countBall(Set<Number> inputNumbers, Set<Number> randomNumbers) {
-        return (int) (randomNumbers.stream()
-                .filter(randomNumber -> inputNumbers.stream().anyMatch(Predicate.isEqual(randomNumber)))
-                .count()
-                - Strike.countStrike(inputNumbers, randomNumbers));
+    public static int countBall(List<Number> inputNumbers, List<Number> randomNumbers) {
+        return (int) IntStream.range(0, 3)
+                .filter(index -> randomNumbers.contains(inputNumbers.get(index)))
+                .filter(index -> !randomNumbers.get(index).equals(inputNumbers.get(index)))
+                .count();
     }
 }
 
