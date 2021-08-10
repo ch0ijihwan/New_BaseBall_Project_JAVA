@@ -29,8 +29,7 @@ public class Round {
     }
 
     private List<Number> enterNumbers() {
-        return new EnterNumbers(inputBaseballNumbers())
-                .getEnteredNumbers();
+        return new EnterNumbers(inputBaseballNumbers()).getEnteredNumbers();
     }
 
     private void upRoundCount() {
@@ -38,7 +37,7 @@ public class Round {
     }
 
     private void resetRoundCount() {
-        roundCount = 0;
+        roundCount = 1;
     }
 
     public int getRoundCount() {
