@@ -36,7 +36,7 @@ class RandomBaseballNumbersTest {
     }
 
     static Stream<Arguments> randomBaseballParameterProvider() {
-        return Stream.of(arguments(new ArrayList<>( new RandomBaseballNumbers().getRandomBaseballNumbers())),
+        return Stream.of(arguments(new ArrayList<>(new RandomBaseballNumbers().getRandomBaseballNumbers())),
                 arguments(new ArrayList<>(new RandomBaseballNumbers().getRandomBaseballNumbers())),
                 arguments(new ArrayList<>(new RandomBaseballNumbers().getRandomBaseballNumbers())),
                 arguments(new ArrayList<>(new RandomBaseballNumbers().getRandomBaseballNumbers())),

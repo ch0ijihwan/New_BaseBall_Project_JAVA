@@ -4,46 +4,31 @@ import model.EnterNumbers;
 import model.RandomBaseballNumbers;
 import model.Round;
 
-import static model.score.Ball.countBall;
-import static model.score.Strike.countStrike;
 import static view.Input.inputBaseballNumbers;
 import static view.StatusDisplay.*;
 
 public class BaseballController {
     private EnterNumbers enteredNumbers;
     private RandomBaseballNumbers randomBaseballNumbers;
-    private Round round = new Round();
+    private Round round;
 
     BaseballController() {
         enteredNumbers = new EnterNumbers(inputBaseballNumbers());
         randomBaseballNumbers = new RandomBaseballNumbers();
+        round = new Round(enteredNumbers.getEnteredNumbers(), randomBaseballNumbers.getRandomBaseballNumbers());
+
     }
 
-    void playGame() {
-
-        while (isThreeStrike()) {
-            showRountCount(round.getRoundCount());
-            showBallAndStrike(getBallCount(), getStrikeCount());
-            enterNumbers();
-            round.upRoundCount();
+    public void playGame() {
+        while (round.isOver()) {
+            showRoundCount(round.getRoundCount());
+            round.playRound();
         }
         showEndGame();
-        round.resetRoundCount();
     }
 
-    void enterNumbers() {
-        enteredNumbers = new EnterNumbers(inputBaseballNumbers());
-    }
 
-    int getBallCount() {
-        return countBall(enteredNumbers.getEnteredNumbers(), randomBaseballNumbers.getRandomBaseballNumbers());
-    }
-
-    int getStrikeCount() {
-        return countStrike(enteredNumbers.getEnteredNumbers(), randomBaseballNumbers.getRandomBaseballNumbers());
-    }
-
-    boolean isThreeStrike() {
-        return countStrike(enteredNumbers.getEnteredNumbers(), randomBaseballNumbers.getRandomBaseballNumbers()) != 3;
+    public static void resultBallCountAndStrikeCount(int ballCount, int strikeCount) {
+        showBallAndStrike(ballCount, strikeCount);
     }
 }
