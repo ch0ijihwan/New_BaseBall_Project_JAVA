@@ -21,10 +21,6 @@ public class Round {
     public void playRound() {
         upRoundCount();
         resultBallCountAndStrikeCount(resultBall(), resultStrike());
-        if (isThreeStrike()) {
-            isOver();
-            resetRoundCount();
-        }
         this.uesrNumbers = enterNumbers();
     }
 
@@ -45,7 +41,11 @@ public class Round {
     }
 
     public boolean isOver() {
-        return !isThreeStrike();
+        if (isThreeStrike()) {
+            resetRoundCount();
+            return false;
+        }
+        return true;
     }
 
     private boolean isThreeStrike() {
