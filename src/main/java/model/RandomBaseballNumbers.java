@@ -9,10 +9,10 @@ import static util.RandomUtil.generateRandomNumber;
 
 public class RandomBaseballNumbers {
     private static final int RANDOM_NUMBER_SIZE = 3;
-    private final Set<String> threeNumbers = new LinkedHashSet<>();
     private final List<Number> randomNumbers;
 
     public RandomBaseballNumbers() {
+        Set<String> threeNumbers = new LinkedHashSet<>();
         while (threeNumbers.size() < RANDOM_NUMBER_SIZE) {
             threeNumbers.add(String.valueOf(generateRandomNumber()));
         }
