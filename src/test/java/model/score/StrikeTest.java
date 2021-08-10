@@ -1,6 +1,6 @@
 package model.score;
 
-import model.Number;
+import model.BaseballNumber;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -18,20 +18,20 @@ class StrikeTest {
     @ParameterizedTest
     @MethodSource("strikeCountParameterProvider")
     @DisplayName("4가지 두 Set을 받아 스트라이크의 개수를 반환한다.")
-    void getStrikeCount(List<Number> inputNumbers, List<Number> randomNumbers, int expect) {
+    void getStrikeCount(List<BaseballNumber> inputNumbers, List<BaseballNumber> randomNumbers, int expect) {
         int count = Strike.countStrike(inputNumbers, randomNumbers);
         assertThat(count).isEqualTo(expect);
     }
 
     static Stream<Arguments> strikeCountParameterProvider() {
-        return Stream.of(arguments(Arrays.asList(new Number("1"), new Number("2"), new Number("3")),
-                        Arrays.asList(new Number("1"), new Number("2"), new Number("3")), 3),
-                arguments(Arrays.asList(new Number("1"), new Number("2"), new Number("3")),
-                        Arrays.asList(new Number("6"), new Number("2"), new Number("3")), 2),
-                arguments(Arrays.asList(new Number("1"), new Number("2"), new Number("3")),
-                        Arrays.asList(new Number("7"), new Number("6"), new Number("3")), 1),
-                arguments(Arrays.asList(new Number("1"), new Number("2"), new Number("3")),
-                        Arrays.asList(new Number("4"), new Number("5"), new Number("6")), 0)
+        return Stream.of(arguments(Arrays.asList(new BaseballNumber("1"), new BaseballNumber("2"), new BaseballNumber("3")),
+                        Arrays.asList(new BaseballNumber("1"), new BaseballNumber("2"), new BaseballNumber("3")), 3),
+                arguments(Arrays.asList(new BaseballNumber("1"), new BaseballNumber("2"), new BaseballNumber("3")),
+                        Arrays.asList(new BaseballNumber("6"), new BaseballNumber("2"), new BaseballNumber("3")), 2),
+                arguments(Arrays.asList(new BaseballNumber("1"), new BaseballNumber("2"), new BaseballNumber("3")),
+                        Arrays.asList(new BaseballNumber("7"), new BaseballNumber("6"), new BaseballNumber("3")), 1),
+                arguments(Arrays.asList(new BaseballNumber("1"), new BaseballNumber("2"), new BaseballNumber("3")),
+                        Arrays.asList(new BaseballNumber("4"), new BaseballNumber("5"), new BaseballNumber("6")), 0)
         );
     }
 }

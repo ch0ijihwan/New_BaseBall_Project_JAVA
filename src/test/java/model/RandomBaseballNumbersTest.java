@@ -26,7 +26,7 @@ class RandomBaseballNumbersTest {
     @ParameterizedTest
     @MethodSource("randomBaseballParameterProvider")
     @DisplayName("생성된 랜덤 베이스볼에 각각 0보다 크고 10 보다 작은 값이 있는지 확인")
-    void allNumberIsGreaterThanZeroAndLessThanTen(List<Number> numbers) {
+    void allNumberIsGreaterThanZeroAndLessThanTen(List<BaseballNumber> numbers) {
         assertAll(
                 () -> assertThat(numbers.get(0).value()).isGreaterThan(0).isLessThan(10),
                 () -> assertThat(numbers.get(1).value()).isGreaterThan(0).isLessThan(10),

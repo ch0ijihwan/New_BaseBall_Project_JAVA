@@ -10,10 +10,10 @@ import static view.Input.inputBaseballNumbers;
 public class Round {
 
     private int roundCount = 1;
-    private List<Number> uesrNumbers;
-    private final List<Number> systemNumbers;
+    private List<BaseballNumber> uesrNumbers;
+    private final List<BaseballNumber> systemNumbers;
 
-    public Round(List<Number> uesrNumbers, List<Number> systemNumbers) {
+    public Round(List<BaseballNumber> uesrNumbers, List<BaseballNumber> systemNumbers) {
         this.uesrNumbers = uesrNumbers;
         this.systemNumbers = systemNumbers;
     }
@@ -28,7 +28,7 @@ public class Round {
         this.uesrNumbers = enterNumbers();
     }
 
-    private List<Number> enterNumbers() {
+    private List<BaseballNumber> enterNumbers() {
         return new EnterNumbers(inputBaseballNumbers()).getEnteredNumbers();
     }
 

@@ -3,12 +3,12 @@ package model;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
-public class Number {
+public class BaseballNumber {
     private static final String NUMBER_REGEX = "^[1-9]";
     private static final Pattern NUMBER_PATTERN = Pattern.compile(NUMBER_REGEX);
     private final int number;
 
-    public Number(String number) {
+    public BaseballNumber(String number) {
         isBlank(number);
         isNumber(number);
         this.number = Integer.parseInt(number);
@@ -34,7 +34,7 @@ public class Number {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Number that = (Number) o;
+        BaseballNumber that = (BaseballNumber) o;
         return this.number == that.number;
     }
 

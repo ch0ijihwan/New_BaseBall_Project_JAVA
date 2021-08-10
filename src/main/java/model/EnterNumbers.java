@@ -6,16 +6,16 @@ import java.util.stream.Collectors;
 
 public class EnterNumbers {
     private static final int NUMBER_LENGTH = 3;
-    private final List<Number> values;
+    private final List<BaseballNumber> values;
 
     public EnterNumbers(String[] tokens) {
         this.values = initValue(tokens);
     }
 
-    private List<Number> initValue(String[] tokens) {
+    private List<BaseballNumber> initValue(String[] tokens) {
         checkEnteredNumber(tokens);
         return Arrays.stream(tokens)
-                .map(Number::new).collect(Collectors.toList());
+                .map(BaseballNumber::new).collect(Collectors.toList());
     }
 
     private void checkEnteredNumber(String[] token) {
@@ -24,7 +24,7 @@ public class EnterNumbers {
         }
     }
 
-    public List<Number> getEnteredNumbers() {
+    public List<BaseballNumber> getEnteredNumbers() {
         return this.values;
     }
 }
