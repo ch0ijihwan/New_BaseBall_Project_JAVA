@@ -1,6 +1,6 @@
 package model;
 
-import java.util.Set;
+import java.util.List;
 
 import static controller.BaseballController.resultBallCountAndStrikeCount;
 import static model.score.Ball.countBall;
@@ -10,10 +10,10 @@ import static view.Input.inputBaseballNumbers;
 public class Round {
 
     private int roundCount = 1;
-    private Set<Number> uesrNumbers;
-    private final Set<Number> systemNumbers;
+    private List<Number> uesrNumbers;
+    private final List<Number> systemNumbers;
 
-    public Round(Set<Number> uesrNumbers, Set<Number> systemNumbers) {
+    public Round(List<Number> uesrNumbers, List<Number> systemNumbers) {
         this.uesrNumbers = uesrNumbers;
         this.systemNumbers = systemNumbers;
     }
@@ -28,7 +28,7 @@ public class Round {
         this.uesrNumbers = enterNumbers();
     }
 
-    private Set<Number> enterNumbers() {
+    private List<Number> enterNumbers() {
         return new EnterNumbers(inputBaseballNumbers()).getEnteredNumbers();
     }
 
