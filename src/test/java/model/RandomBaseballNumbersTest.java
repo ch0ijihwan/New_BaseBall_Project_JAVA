@@ -6,7 +6,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -36,10 +35,10 @@ class RandomBaseballNumbersTest {
     }
 
     static Stream<Arguments> randomBaseballParameterProvider() {
-        return Stream.of(arguments(new ArrayList<>(new RandomBaseballNumbers().getRandomBaseballNumbers())),
-                arguments(new ArrayList<>(new RandomBaseballNumbers().getRandomBaseballNumbers())),
-                arguments(new ArrayList<>(new RandomBaseballNumbers().getRandomBaseballNumbers())),
-                arguments(new ArrayList<>(new RandomBaseballNumbers().getRandomBaseballNumbers())),
-                arguments(new ArrayList<>(new RandomBaseballNumbers().getRandomBaseballNumbers())));
+        return Stream.of(arguments(new RandomBaseballNumbers().getRandomBaseballNumbers()),
+                arguments(new RandomBaseballNumbers().getRandomBaseballNumbers()),
+                arguments(new RandomBaseballNumbers().getRandomBaseballNumbers()),
+                arguments(new RandomBaseballNumbers().getRandomBaseballNumbers()),
+                arguments(new RandomBaseballNumbers().getRandomBaseballNumbers()));
     }
 }
