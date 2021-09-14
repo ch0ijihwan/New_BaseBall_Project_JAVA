@@ -1,8 +1,8 @@
 package model;
 
 public class BaseBall {
-    private int number;
-    private int position;
+    private final int number;
+    private final int position;
 
     private static final int STRIKE = 1;
     private static final int BALL = 2;
