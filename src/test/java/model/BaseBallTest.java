@@ -14,6 +14,10 @@ class BaseBallTest {
     private BaseBall baseBall;
     private BaseBall anotherBall;
 
+    private static final int STRIKE = 1;
+    private static final int BALL = 2;
+    private static final int NOTHING = 0;
+
     @ParameterizedTest
     @MethodSource("checkBallParameterProvider")
     @DisplayName("공 두개를 비교하여, Strike인 경우 1,Ball 인경우 2, Nothing인 경우 0을 반환함을 확인.")
@@ -22,12 +26,13 @@ class BaseBallTest {
     }
 
     static Stream<Arguments> checkBallParameterProvider() {
-        return Stream.of(arguments(new BaseBall(new BaseballNumber("1"), 1), new BaseBall(new BaseballNumber("1"), 1), 1),
-                arguments(new BaseBall(new BaseballNumber("1"), 1), new BaseBall(new BaseballNumber("1"), 2), 2),
-                arguments(new BaseBall(new BaseballNumber("1"), 1), new BaseBall(new BaseballNumber("2"), 1), 0),
-                arguments(new BaseBall(new BaseballNumber("1"), 2), new BaseBall(new BaseballNumber("2"), 2), 0),
-                arguments(new BaseBall(new BaseballNumber("3"), 1), new BaseBall(new BaseballNumber("3"), 2), 2),
-                arguments(new BaseBall(new BaseballNumber("3"), 1), new BaseBall(new BaseballNumber("3"), 1), 1)
+        return Stream.of(arguments(new BaseBall(new BaseballNumber("1"), 1), new BaseBall(new BaseballNumber("1"), 1), STRIKE),
+                arguments(new BaseBall(new BaseballNumber("1"), 1), new BaseBall(new BaseballNumber("1"), 2), BALL),
+                arguments(new BaseBall(new BaseballNumber("1"), 1), new BaseBall(new BaseballNumber("2"), 1), NOTHING),
+                arguments(new BaseBall(new BaseballNumber("1"), 2), new BaseBall(new BaseballNumber("2"), 2), NOTHING),
+                arguments(new BaseBall(new BaseballNumber("3"), 1), new BaseBall(new BaseballNumber("3"), 2), BALL),
+                arguments(new BaseBall(new BaseballNumber("3"), 1), new BaseBall(new BaseballNumber("3"), 1), STRIKE)
+
         );
     }
 }
