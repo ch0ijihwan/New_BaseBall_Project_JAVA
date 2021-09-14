@@ -17,7 +17,7 @@ public class BaseBall {
         if (this.number == anotherBall.number && this.position == anotherBall.position) {
             return STRIKE;
         }
-        if (this.number == anotherBall.number && this.position != anotherBall.position) {
+        if (this.number == anotherBall.number) {
             return BALL;
         }
         return NOTHING;
