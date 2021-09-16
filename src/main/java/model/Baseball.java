@@ -1,20 +1,20 @@
 package model;
 
-public class BaseBall {
-    private final int number;
+public class Baseball {
+    private final BaseballNumber number;
     private final int position;
 
     private static final int STRIKE = 1;
     private static final int BALL = 2;
     private static final int NOTHING = 0;
 
-    public BaseBall(BaseballNumber baseBallNumber, int position) {
-        this.number = baseBallNumber.value();
+    public Baseball(BaseballNumber baseBallNumber, int position) {
+        number = baseBallNumber;
         this.position = position;
     }
 
-    int checkBall(BaseBall anotherBall) {
-        if (this.number == anotherBall.number && this.position == anotherBall.position) {
+    int checkBall(Baseball anotherBall) {
+        if (this.equals(anotherBall)) {
             return STRIKE;
         }
         if (this.number == anotherBall.number) {
