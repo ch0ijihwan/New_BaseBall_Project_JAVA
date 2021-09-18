@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 
 import static util.RandomUtil.generateRandomNumber;
 
-public class RandomBaseballNumbers {
+public class RandomBaseballNumbersGenerator {
     private static final int RANDOM_NUMBER_SIZE = 3;
     private final List<BaseballNumber> randomNumbers;
 
-    public RandomBaseballNumbers() {
+    public RandomBaseballNumbersGenerator() {
         Set<String> threeNumbers = new LinkedHashSet<>();
         while (threeNumbers.size() < RANDOM_NUMBER_SIZE) {
             threeNumbers.add(String.valueOf(generateRandomNumber()));
