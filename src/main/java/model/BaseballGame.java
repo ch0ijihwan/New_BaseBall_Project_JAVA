@@ -10,7 +10,6 @@ public class BaseballGame {
     private static final int BALL = 2;
 
     private int roundCount = 1;
-    private List<Baseball> uesrNumbers;
     private Baseballs inputBaseballs;
     private Baseballs systemBaseballs;
     private List<Integer> comparedResult;
@@ -25,11 +24,12 @@ public class BaseballGame {
     public void playOperation() {
         countUpRound();
         resultBallCountAndStrikeCount(countBallScore(), countStrike());
-        this.uesrNumbers = enterNumbers();
+        inputBaseballs = enterNumbers();
+        comparedResult = inputBaseballs.compareThreeBall(systemBaseballs);
     }
 
-    private List<Baseball> enterNumbers() {
-        return new InputNumbers(inputBaseballNumbers()).getInputBaseballNumbers();
+    private Baseballs enterNumbers() {
+        return new Baseballs(new InputNumbers(inputBaseballNumbers()).getInputBaseballNumbers());
     }
 
     private void countUpRound() {
@@ -44,15 +44,8 @@ public class BaseballGame {
         return roundCount;
     }
 
-    public boolean isOver() {
-        if (isThreeStrike()) {
-            return false;
-        }
-        return true;
-    }
-
-    private boolean isThreeStrike() {
-        return comparedResult.stream()
+    public boolean isThreeStrike() {
+        return (int) comparedResult.stream()
                 .filter(baseballResult -> baseballResult == STRIKE).count() == 3;
     }
 
