@@ -13,7 +13,7 @@ public class Baseball {
         this.position = position;
     }
 
-    int checkBall(Baseball anotherBall) {
+    int checkBaseball(Baseball anotherBall) {
         if (this.number.equals(anotherBall.number) && this.position == anotherBall.position) {
             return STRIKE;
         }
