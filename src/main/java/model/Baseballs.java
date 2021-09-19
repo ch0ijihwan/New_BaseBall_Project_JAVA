@@ -22,7 +22,7 @@ public class Baseballs {
 
     private int compareBall(Baseball anotherBalls) {
         return threeBalls.stream()
-                .map(anotherBalls::checkBall)
+                .map(anotherBalls::checkBaseball)
                 .filter(ballStatus -> ballStatus == BALL || ballStatus == STRIKE)
                 .findAny()
                 .orElse(NOTHING);
