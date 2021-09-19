@@ -15,7 +15,7 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class RandomBaseballNumbersGeneratorTest {
     private static final int MAX_NUMBER = 10;
-    private static RandomBaseballNumbersGenerator randomBaseballNumbers = new RandomBaseballNumbersGenerator();
+    private static final RandomBaseballNumbersGenerator randomBaseballNumbers = new RandomBaseballNumbersGenerator();
 
     @Test
     @DisplayName("램던 베이스볼의 갯수가 3개인지 확인")
@@ -26,7 +26,7 @@ class RandomBaseballNumbersGeneratorTest {
     @ParameterizedTest
     @MethodSource("randomBaseballParameterProvider")
     @DisplayName("생성된 랜덤 베이스볼에 각각 0보다 크고 10 보다 작은 값이 있는지 확인")
-    void allNumberIsGreaterThanZeroAndLessThanTen(List<BaseballNumber> numbers) {
+    void allNumberIsGreaterThanZeroAndLessThanTen(List<Baseball> numbers) {
         assertAll(
                 () -> assertThat(numbers.get(0).value()).isPositive().isLessThan(MAX_NUMBER),
                 () -> assertThat(numbers.get(1).value()).isPositive().isLessThan(MAX_NUMBER),
