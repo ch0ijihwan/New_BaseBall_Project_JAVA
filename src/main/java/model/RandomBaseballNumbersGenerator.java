@@ -1,9 +1,10 @@
 package model;
 
-import java.util.LinkedHashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.NavigableSet;
+import java.util.TreeSet;
+import java.util.stream.IntStream;
 
 import static util.RandomUtil.generateRandomNumber;
 
@@ -16,10 +17,8 @@ public class RandomBaseballNumbersGenerator {
         while (threeNumbers.size() < RANDOM_NUMBER_SIZE) {
             threeNumbers.add(String.valueOf(generateRandomNumber()));
         }
-        randomNumbers = threeNumbers.stream().map(BaseballNumber::new).collect(Collectors.toList());
-    }
-
-    public List<BaseballNumber> getRandomBaseballNumbers() {
-        return randomNumbers;
+        IntStream.range(0, RANDOM_NUMBER_SIZE).forEach(index -> randomBaseballs
+                .add(new Baseball(new BaseballNumber(threeNumbers.pollFirst()), index)));
+        return randomBaseballs;
     }
 }

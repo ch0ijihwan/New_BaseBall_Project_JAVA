@@ -8,21 +8,21 @@ public class Baseballs {
     private static final int BALL = 2;
     private static final int NOTHING = 0;
 
-    private final List<Baseball> threeBalls;
+    private List<Baseball> threeBalls;
 
     public Baseballs(List<Baseball> threeBalls) {
         this.threeBalls = threeBalls;
     }
 
-    private List<Integer> compareThreeBall(Baseballs another) {
+    public List<Integer> compareThreeBall(Baseballs another) {
         return threeBalls.stream()
                 .map(another::compareBall)
                 .collect(Collectors.toList());
     }
 
-    private Integer compareBall(Baseball anotherBalls) {
+    private int compareBall(Baseball anotherBalls) {
         return threeBalls.stream()
-                .map(anotherBalls::checkBall)
+                .map(anotherBalls::checkBaseball)
                 .filter(ballStatus -> ballStatus == BALL || ballStatus == STRIKE)
                 .findAny()
                 .orElse(NOTHING);

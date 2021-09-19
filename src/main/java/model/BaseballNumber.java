@@ -1,11 +1,9 @@
 package model;
 
 import java.util.Objects;
-import java.util.regex.Pattern;
 
 public class BaseballNumber {
     private static final String NUMBER_REGEX = "^[1-9]";
-    private static final Pattern NUMBER_PATTERN = Pattern.compile(NUMBER_REGEX);
     private final int number;
 
     public BaseballNumber(String number) {
@@ -21,7 +19,7 @@ public class BaseballNumber {
     }
 
     private void isNumber(String number) {
-        if (!NUMBER_PATTERN.matcher(number).matches()) {
+        if (!number.matches(NUMBER_REGEX)) {
             throw new IllegalArgumentException("1~9에 있는 숫자가 아닙니다.");
         }
     }

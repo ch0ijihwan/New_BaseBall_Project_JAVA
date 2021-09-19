@@ -13,13 +13,17 @@ public class Baseball {
         this.position = position;
     }
 
-    int checkBall(Baseball anotherBall) {
-        if (this.equals(anotherBall)) {
+    int checkBaseball(Baseball anotherBall) {
+        if (this.number.equals(anotherBall.number) && this.position == anotherBall.position) {
             return STRIKE;
         }
-        if (this.number == anotherBall.number) {
+        if (this.number.equals(anotherBall.number)) {
             return BALL;
         }
         return NOTHING;
+    }
+
+    int value() {
+        return number.value();
     }
 }

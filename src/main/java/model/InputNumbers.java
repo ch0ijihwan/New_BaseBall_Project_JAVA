@@ -10,10 +10,10 @@ public class InputNumbers {
 
 
     public InputNumbers(String[] tokens) {
-       validateNumber(tokens);
-       values = new ArrayList<>();
-       IntStream.range(0, NUMBER_LENGTH)
-               .forEach(index -> values.set(index, new Baseball(new BaseballNumber(tokens[index]), index)));
+        validateNumber(tokens);
+        values = new ArrayList<>();
+        IntStream.range(0, NUMBER_LENGTH)
+                .forEach(index -> values.add(new Baseball(new BaseballNumber(tokens[index]), index)));
 
     }
 
@@ -21,5 +21,9 @@ public class InputNumbers {
         if (token.length != NUMBER_LENGTH) {
             throw new IllegalArgumentException("입력값이 3자리가 아닙니다.");
         }
+    }
+
+    public List<Baseball> getInputBaseballNumbers() {
+        return this.values;
     }
 }
