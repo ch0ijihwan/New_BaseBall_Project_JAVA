@@ -1,9 +1,9 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.NavigableSet;
+import java.util.TreeSet;
 import java.util.stream.IntStream;
 
 import static util.RandomUtil.generateRandomNumber;
