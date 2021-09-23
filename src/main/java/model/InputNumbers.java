@@ -8,13 +8,11 @@ public class InputNumbers {
     private static final int NUMBER_LENGTH = 3;
     private final List<Baseball> values;
 
-
     public InputNumbers(String[] tokens) {
         validateNumber(tokens);
         values = new ArrayList<>();
         IntStream.range(0, NUMBER_LENGTH)
                 .forEach(index -> values.add(new Baseball(new BaseballNumber(tokens[index]), index)));
-
     }
 
     private void validateNumber(String[] token) {
