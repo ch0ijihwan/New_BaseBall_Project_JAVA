@@ -5,7 +5,7 @@ import java.util.List;
 import static controller.BaseballController.resultBallCountAndStrikeCount;
 import static view.Input.inputBaseballNumbers;
 
-public class BaseballGame {
+public class GameOneRound {
     private static final int STRIKE = 1;
     private static final int BALL = 2;
 
@@ -14,7 +14,7 @@ public class BaseballGame {
     private Baseballs systemBaseballs;
     private List<Integer> comparedResult;
 
-    public BaseballGame(List<Baseball> uesrBaseballNumbers, List<Baseball> systemBaseballNumbers) {
+    public GameOneRound(List<Baseball> uesrBaseballNumbers, List<Baseball> systemBaseballNumbers) {
         resetRoundCount();
         inputBaseballs = new Baseballs(uesrBaseballNumbers);
         systemBaseballs = new Baseballs(systemBaseballNumbers);
