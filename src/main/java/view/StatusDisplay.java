@@ -18,7 +18,7 @@ public class StatusDisplay {
     }
 
     public static void showNewGameQuestion() {
-        System.out.println("게임을 재실행 하려면 1을 누르세요 \n게임을 종료하시려면 2를 누르세요");
+        System.out.println("게임을 재실행 하려면 1을 누르세요 \n 그렇지 않다면 아무키나 누르세요.");
     }
 
     public static void showRoundCount(int roundCount) {
