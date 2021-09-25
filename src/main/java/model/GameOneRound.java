@@ -11,7 +11,7 @@ public class GameOneRound {
 
     private int roundCount = 1;
     private Baseballs inputBaseballs;
-    private Baseballs systemBaseballs;
+    private final Baseballs systemBaseballs;
     private List<Integer> comparedResult;
 
     public GameOneRound(List<Baseball> uesrBaseballNumbers, List<Baseball> systemBaseballNumbers) {
