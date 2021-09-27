@@ -37,4 +37,12 @@ class BaseballNumberTest {
         number = new BaseballNumber("1");
         assertThat(number.hashCode()).hasSameHashCodeAs(number.hashCode());
     }
+
+    @Test
+    @DisplayName("서로다른 number 객체의 Hashcode를 비교하여 다름을 확인하는 테스트 코드 ")
+    void isHashCodeWork2(){
+        number = new BaseballNumber("1");
+        anotherNumber = new BaseballNumber("2");
+        assertThat(number.hashCode()).doesNotHaveSameHashCodeAs(anotherNumber.hashCode());
+    }
 }
