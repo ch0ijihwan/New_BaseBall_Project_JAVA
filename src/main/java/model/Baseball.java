@@ -26,4 +26,8 @@ public class Baseball {
     int value() {
         return number.value();
     }
+
+    int getPosition() {
+        return this.position;
+    }
 }
