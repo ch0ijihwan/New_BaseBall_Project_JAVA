@@ -28,6 +28,15 @@ public class GameOneRound {
         comparedResult = inputBaseballs.compareThreeBall(systemBaseballs);
     }
 
+    public int getRoundCount() {
+        return roundCount;
+    }
+
+    public boolean isThreeStrike() {
+        return (int) comparedResult.stream()
+                .filter(baseballResult -> baseballResult == STRIKE).count() == 3;
+    }
+
     private Baseballs enterNumbers() {
         return new Baseballs(new InputNumbers(inputBaseballNumbers()).getInputBaseballNumbers());
     }
@@ -38,15 +47,6 @@ public class GameOneRound {
 
     private void resetRoundCount() {
         roundCount = 1;
-    }
-
-    public int getRoundCount() {
-        return roundCount;
-    }
-
-    public boolean isThreeStrike() {
-        return (int) comparedResult.stream()
-                .filter(baseballResult -> baseballResult == STRIKE).count() == 3;
     }
 
     private int countBallScore() {
