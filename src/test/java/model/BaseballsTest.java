@@ -19,22 +19,20 @@ class BaseballsTest {
     private static final int BALL = 2;
     private static final int NOTHING = 0;
 
-
     private Baseballs baseballs;
     private Baseballs otherBaseballs;
     List<Baseball> threeBalls = new ArrayList<>();
     List<Baseball> otherThreeBalls = new ArrayList<>();
 
-
     @BeforeEach
     void setUp() {
-        Baseball firstBall = new Baseball(new BaseballNumber("1"), 1);
-        Baseball secondBall = new Baseball(new BaseballNumber("2"), 2);
-        Baseball thirdBall = new Baseball(new BaseballNumber("3"), 3);
+        Baseball firstBall = new Baseball(new BaseballNumber("1"), 0);
+        Baseball secondBall = new Baseball(new BaseballNumber("2"), 1);
+        Baseball thirdBall = new Baseball(new BaseballNumber("3"), 2);
 
-        Baseball otherFirstBall = new Baseball(new BaseballNumber("1"), 1);
-        Baseball otherSecondBall = new Baseball(new BaseballNumber("3"), 2);
-        Baseball otherThirdBall = new Baseball(new BaseballNumber("8"), 3);
+        Baseball otherFirstBall = new Baseball(new BaseballNumber("1"), 0);
+        Baseball otherSecondBall = new Baseball(new BaseballNumber("3"), 1);
+        Baseball otherThirdBall = new Baseball(new BaseballNumber("8"), 2);
 
         threeBalls.add(firstBall);
         threeBalls.add(secondBall);
@@ -43,7 +41,6 @@ class BaseballsTest {
         otherThreeBalls.add(otherFirstBall);
         otherThreeBalls.add(otherSecondBall);
         otherThreeBalls.add(otherThirdBall);
-
     }
 
     @Test
@@ -51,8 +48,13 @@ class BaseballsTest {
     void compareThreeBall() {
         baseballs = new Baseballs(threeBalls);
         otherBaseballs = new Baseballs(otherThreeBalls);
-    }
+        List<Integer> expect = new ArrayList<>();
+        expect.add(1);
+        expect.add(0);
+        expect.add(2);
 
+        assertThat(baseballs.compareThreeBall(otherBaseballs)).isEqualTo(expect);
+    }
 
     @ParameterizedTest
     @MethodSource("baseballParameterProvider")
