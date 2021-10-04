@@ -1,6 +1,8 @@
 package model;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -14,7 +16,14 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class GameOneRoundTest {
     private static final int BALL = 2;
+    private static final int START_ROUND_COUNT = 1;
     private GameOneRound gameOneRound;
+
+    @BeforeEach
+    void setUp() {
+        gameOneRound = new GameOneRound(Arrays.asList(new Baseball(new BaseballNumber("1"), 0), new Baseball(new BaseballNumber("2"), 1), new Baseball(new BaseballNumber("3"), 2)),
+                Arrays.asList(new Baseball(new BaseballNumber("1"), 0), new Baseball(new BaseballNumber("2"), 1), new Baseball(new BaseballNumber("3"), 2)));
+    }
 
     @ParameterizedTest
     @MethodSource("threeStrikeCountParameterProvider")
@@ -42,16 +51,9 @@ class GameOneRoundTest {
                         Arrays.asList(new Baseball(new BaseballNumber("4"), 0), new Baseball(new BaseballNumber("5"), 1), new Baseball(new BaseballNumber("6"), 2)), true));
     }
 
-    @ParameterizedTest
-    @MethodSource("threeBaseballsParameterProvider")
+    @Test
     @DisplayName("객체 생성시 라운드 카운트를 1로 초기화 하는지 확인")
-    void checkResetRoundCount(List<Baseball> inputBaseballs, List<Baseball> randomBaseballs) {
-        gameOneRound = new GameOneRound(inputBaseballs, randomBaseballs);
-        assertThat(gameOneRound.getRoundCount()).isEqualTo(1);
-    }
-
-    static Stream<Arguments> threeBaseballsParameterProvider() {
-        return Stream.of(arguments(Arrays.asList(new Baseball(new BaseballNumber("1"), 0), new Baseball(new BaseballNumber("2"), 1), new Baseball(new BaseballNumber("3"), 2)),
-                Arrays.asList(new Baseball(new BaseballNumber("1"), 0), new Baseball(new BaseballNumber("2"), 1), new Baseball(new BaseballNumber("3"), 2))));
+    void checkResetRoundCount() {
+        assertThat(gameOneRound.getRoundCount()).isEqualTo(START_ROUND_COUNT);
     }
 }
