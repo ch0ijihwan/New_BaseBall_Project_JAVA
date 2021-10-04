@@ -5,7 +5,8 @@ import model.GameOneRound;
 import model.RandomBaseballNumbersGenerator;
 
 import static view.Input.inputBaseballNumbers;
-import static view.StatusDisplay.*;
+import static view.StatusDisplay.showBallAndStrike;
+import static view.StatusDisplay.showEndGame;
 
 public class BaseballController {
     private RandomBaseballNumbersGenerator randomBaseballNumbers;
@@ -19,8 +20,7 @@ public class BaseballController {
 
     public void playGame() {
         while (!gameOneRound.isThreeStrike()) {
-            showRoundCount(gameOneRound.getRoundCount());
-            gameOneRound.nextTimeOperation();
+             gameOneRound.operate();
         }
         showEndGame();
     }
