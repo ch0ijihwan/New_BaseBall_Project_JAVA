@@ -10,18 +10,18 @@ import static view.StatusDisplay.*;
 public class BaseballController {
     private InputNumbers inputNumbers;
     private RandomBaseballNumbersGenerator randomBaseballNumbers;
-    private GameOneRound round;
+    private GameOneRound gameOneRound;
 
     BaseballController() {
         inputNumbers = new InputNumbers(inputBaseballNumbers());
         randomBaseballNumbers = new RandomBaseballNumbersGenerator();
-        round = new GameOneRound(inputNumbers.getInputBaseballNumbers(), randomBaseballNumbers.getRandomBaseballNumbers());
+        gameOneRound = new GameOneRound(inputNumbers.getInputBaseballNumbers(), randomBaseballNumbers.getRandomBaseballNumbers());
     }
 
     public void playGame() {
-        while (!round.isThreeStrike()) {
-            showRoundCount(round.getRoundCount());
-            round.playOperation();
+        while (!gameOneRound.isThreeStrike()) {
+            showRoundCount(gameOneRound.getRoundCount());
+            gameOneRound.nextTimeOperation();
         }
         showEndGame();
     }

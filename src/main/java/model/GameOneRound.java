@@ -21,7 +21,7 @@ public class GameOneRound {
         comparedResult = inputBaseballs.compareThreeBall(systemBaseballs);
     }
 
-    public void playOperation() {
+    public void nextTimeOperation() {
         countUpRound();
         resultBallCountAndStrikeCount(countBallScore(), countStrike());
         inputBaseballs = enterNumbers();
