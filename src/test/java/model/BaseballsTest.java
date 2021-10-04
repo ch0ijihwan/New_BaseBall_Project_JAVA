@@ -15,10 +15,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class BaseballsTest {
-    private static final int STRIKE = 1;
-    private static final int BALL = 2;
-    private static final int NOTHING = 0;
-
     private Baseballs baseballs;
     private Baseballs otherBaseballs;
     List<Baseball> threeBalls = new ArrayList<>();
@@ -48,10 +44,10 @@ class BaseballsTest {
     void compareThreeBall() {
         baseballs = new Baseballs(threeBalls);
         otherBaseballs = new Baseballs(otherThreeBalls);
-        List<Integer> expect = new ArrayList<>();
-        expect.add(1);
-        expect.add(0);
-        expect.add(2);
+        List<BallStatus> expect = new ArrayList<>();
+        expect.add(BallStatus.STRIKE_STATUS);
+        expect.add(BallStatus.NOTHING_STATUS);
+        expect.add(BallStatus.BALL_STATUS);
 
         assertThat(baseballs.compareThreeBall(otherBaseballs)).isEqualTo(expect);
     }
@@ -59,18 +55,18 @@ class BaseballsTest {
     @ParameterizedTest
     @MethodSource("baseballParameterProvider")
     @DisplayName("서로 다른 공 두개를 서로 비교하여 볼 스트라이크를 제대로 반환하는지 확인하는 테스트 코드")
-    void compareBallOneByOne(Baseball baseball, Baseball anoterBaseball, int expect) {
+    void compareBallOneByOne(Baseball baseball, Baseball anoterBaseball, BallStatus expect) {
         assertThat(baseball.checkBaseball(anoterBaseball)).isEqualTo(expect);
     }
 
     static Stream<Arguments> baseballParameterProvider() {
-        return Stream.of(arguments(new Baseball(new BaseballNumber("1"), 1), new Baseball(new BaseballNumber("1"), 1), STRIKE),
-                arguments(new Baseball(new BaseballNumber("2"), 1), new Baseball(new BaseballNumber("2"), 1), STRIKE),
-                arguments(new Baseball(new BaseballNumber("1"), 2), new Baseball(new BaseballNumber("1"), 2), STRIKE),
-                arguments(new Baseball(new BaseballNumber("1"), 1), new Baseball(new BaseballNumber("1"), 2), BALL),
-                arguments(new Baseball(new BaseballNumber("2"), 1), new Baseball(new BaseballNumber("2"), 3), BALL),
-                arguments(new Baseball(new BaseballNumber("6"), 1), new Baseball(new BaseballNumber("6"), 2), BALL),
-                arguments(new Baseball(new BaseballNumber("1"), 2), new Baseball(new BaseballNumber("3"), 1), NOTHING),
-                arguments(new Baseball(new BaseballNumber("1"), 2), new Baseball(new BaseballNumber("3"), 2), NOTHING));
+        return Stream.of(arguments(new Baseball(new BaseballNumber("1"), 1), new Baseball(new BaseballNumber("1"), 1), BallStatus.STRIKE_STATUS),
+                arguments(new Baseball(new BaseballNumber("2"), 1), new Baseball(new BaseballNumber("2"), 1), BallStatus.STRIKE_STATUS),
+                arguments(new Baseball(new BaseballNumber("1"), 2), new Baseball(new BaseballNumber("1"), 2), BallStatus.STRIKE_STATUS),
+                arguments(new Baseball(new BaseballNumber("1"), 1), new Baseball(new BaseballNumber("1"), 2), BallStatus.BALL_STATUS),
+                arguments(new Baseball(new BaseballNumber("2"), 1), new Baseball(new BaseballNumber("2"), 3), BallStatus.BALL_STATUS),
+                arguments(new Baseball(new BaseballNumber("6"), 1), new Baseball(new BaseballNumber("6"), 2), BallStatus.BALL_STATUS),
+                arguments(new Baseball(new BaseballNumber("1"), 2), new Baseball(new BaseballNumber("3"), 1), BallStatus.NOTHING_STATUS),
+                arguments(new Baseball(new BaseballNumber("1"), 2), new Baseball(new BaseballNumber("3"), 2), BallStatus.NOTHING_STATUS));
     }
 }
