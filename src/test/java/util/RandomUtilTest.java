@@ -23,6 +23,14 @@ class RandomUtilTest {
         return Stream.of(arguments(generateRandomNumber()),
                 arguments(generateRandomNumber()),
                 arguments(generateRandomNumber()),
+                arguments(generateRandomNumber()),
+                arguments(generateRandomNumber()),
+                arguments(generateRandomNumber()),
+                arguments(generateRandomNumber()),
+                arguments(generateRandomNumber()),
+                arguments(generateRandomNumber()),
+                arguments(generateRandomNumber()),
+                arguments(generateRandomNumber()),
                 arguments(generateRandomNumber()));
     }
 }
