@@ -16,7 +16,7 @@ class RandomUtilTest {
     @MethodSource("randomUtilParameterProvider")
     @DisplayName("0보다크고 10보다 작은 한자리수 반환")
     void greaterThanZeroAndLessThanTen(int number) {
-        assertThat(number).isGreaterThan(0).isLessThan(10);
+        assertThat(number).isPositive().isLessThan(10);
     }
 
     static Stream<Arguments> randomUtilParameterProvider() {
