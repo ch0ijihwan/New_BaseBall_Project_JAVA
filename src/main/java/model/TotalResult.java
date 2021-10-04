@@ -21,4 +21,8 @@ public class TotalResult {
                 .filter(baseballResult -> baseballResult == BallStatus.STRIKE_STATUS)
                 .count();
     }
+
+    public boolean isResultThreeStrike() {
+        return countStrike() == 3;
+    }
 }
