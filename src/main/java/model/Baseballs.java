@@ -6,9 +6,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Baseballs {
-    private static final int STRIKE = 1;
-    private static final int BALL = 2;
-    private static final int NOTHING = 0;
+
     private static final int NUMBER_LENGTH = 3;
 
     private List<Baseball> threeBalls;
@@ -34,7 +32,7 @@ public class Baseballs {
         if (token.length != NUMBER_LENGTH) {
             throw new IllegalArgumentException("입력값이 3자리가 아닙니다.");
         }
-        if (Arrays.stream(token).distinct().count() >= 2) {
+        if (Arrays.stream(token).distinct().count() != 3) {
             throw new IllegalArgumentException("중복되는 수가 있습니다.");
         }
     }
