@@ -1,7 +1,6 @@
 package model;
 
 public class Baseball {
-
     private final BaseballNumber number;
     private final int position;
 
