@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,7 +10,7 @@ public class Baseballs {
 
     private static final int NUMBER_LENGTH = 3;
 
-    private List<Baseball> threeBalls;
+    private List<Baseball> threeBalls = new ArrayList<>();
 
     public Baseballs(List<Baseball> threeBalls) {
         this.threeBalls = threeBalls;
