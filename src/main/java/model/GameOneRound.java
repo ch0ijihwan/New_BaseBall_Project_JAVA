@@ -24,7 +24,6 @@ public class GameOneRound {
     }
 
     public boolean isThreeStrike() {
-        totalResult = new TotalResult(comparedResult);
        return totalResult.isResultThreeStrike();
     }
 
