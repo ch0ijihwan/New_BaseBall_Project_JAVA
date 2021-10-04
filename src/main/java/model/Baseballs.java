@@ -18,7 +18,6 @@ public class Baseballs {
     }
 
     public Baseballs(String[] inputNumbers) {
-
         validateNumber(inputNumbers);
 
         List<BaseballNumber> numbers;
@@ -40,17 +39,17 @@ public class Baseballs {
         }
     }
 
-    public List<Integer> compareThreeBall(Baseballs another) {
+    public List<BallStatus> compareThreeBall(Baseballs another) {
         return threeBalls.stream()
                 .map(another::compareBall)
                 .collect(Collectors.toList());
     }
 
-    private int compareBall(Baseball anotherBalls) {
+    private BallStatus compareBall(Baseball anotherBalls) {
         return threeBalls.stream()
                 .map(anotherBalls::checkBaseball)
-                .filter(ballStatus -> ballStatus == BALL || ballStatus == STRIKE)
+                .filter(ballStatus -> ballStatus == BallStatus.BALL_STATUS || ballStatus == BallStatus.STRIKE_STATUS)
                 .findAny()
-                .orElse(NOTHING);
+                .orElse(BallStatus.NOTHING_STATUS);
     }
 }
