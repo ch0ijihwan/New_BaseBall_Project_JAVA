@@ -18,8 +18,4 @@ public class Baseball {
         }
         return BallStatus.NOTHING_STATUS;
     }
-
-    int getPosition() {
-        return this.position;
-    }
 }
