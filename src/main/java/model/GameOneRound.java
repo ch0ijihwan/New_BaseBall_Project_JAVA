@@ -17,15 +17,15 @@ public class GameOneRound {
     }
 
     public void operate() {
-        totalResult = new TotalResult(comparedResult);
-        resultBallCountAndStrikeCount(totalResult.countBallScore(), totalResult.countStrike());
+        totalResult = new TotalResult(this.comparedResult);
+        resultBallCountAndStrikeCount(totalResult.countBallScore(),totalResult.countStrike());
         Baseballs inputNewBaseballs = enterNumbers();
         comparedResult = inputNewBaseballs.compareThreeBall(systemBaseballs);
     }
 
     public boolean isThreeStrike() {
         totalResult = new TotalResult(comparedResult);
-       return totalResult.isResultThreeStrike();
+        return totalResult.isResultThreeStrike();
     }
 
     private Baseballs enterNumbers() {
