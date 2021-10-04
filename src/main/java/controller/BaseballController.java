@@ -1,21 +1,20 @@
 package controller;
 
+import model.Baseballs;
 import model.GameOneRound;
-import model.InputNumbers;
 import model.RandomBaseballNumbersGenerator;
 
 import static view.Input.inputBaseballNumbers;
 import static view.StatusDisplay.*;
 
 public class BaseballController {
-    private InputNumbers inputNumbers;
     private RandomBaseballNumbersGenerator randomBaseballNumbers;
     private GameOneRound gameOneRound;
 
     BaseballController() {
-        inputNumbers = new InputNumbers(inputBaseballNumbers());
+        Baseballs inputNumbers = new Baseballs(inputBaseballNumbers());
         randomBaseballNumbers = new RandomBaseballNumbersGenerator();
-        gameOneRound = new GameOneRound(inputNumbers.getInputBaseballNumbers(), randomBaseballNumbers.getRandomBaseballNumbers());
+        gameOneRound = new GameOneRound(inputNumbers, randomBaseballNumbers.getRandomBaseballNumbers());
     }
 
     public void playGame() {
