@@ -13,6 +13,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class GameOneRoundTest {
+    private static final int BALL = 2;
+    private GameOneRound gameOneRound;
+
     @ParameterizedTest
     @MethodSource("threeStrikeCountParameterProvider")
     @DisplayName("threeStrike 인 경우 true 반환을 확인.")
@@ -37,5 +40,18 @@ class GameOneRoundTest {
 
                 arguments(Arrays.asList(new Baseball(new BaseballNumber("4"), 0), new Baseball(new BaseballNumber("5"), 1), new Baseball(new BaseballNumber("6"), 2)),
                         Arrays.asList(new Baseball(new BaseballNumber("4"), 0), new Baseball(new BaseballNumber("5"), 1), new Baseball(new BaseballNumber("6"), 2)), true));
+    }
+
+    @ParameterizedTest
+    @MethodSource("threeBaseballsParameterProvider")
+    @DisplayName("객체 생성시 라운드 카운트를 1로 초기화 하는지 확인")
+    void checkResetRoundCount(List<Baseball> inputBaseballs, List<Baseball> randomBaseballs) {
+        gameOneRound = new GameOneRound(inputBaseballs, randomBaseballs);
+        assertThat(gameOneRound.getRoundCount()).isEqualTo(1);
+    }
+
+    static Stream<Arguments> threeBaseballsParameterProvider() {
+        return Stream.of(arguments(Arrays.asList(new Baseball(new BaseballNumber("1"), 0), new Baseball(new BaseballNumber("2"), 1), new Baseball(new BaseballNumber("3"), 2)),
+                Arrays.asList(new Baseball(new BaseballNumber("1"), 0), new Baseball(new BaseballNumber("2"), 1), new Baseball(new BaseballNumber("3"), 2))));
     }
 }
