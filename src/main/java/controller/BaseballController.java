@@ -4,23 +4,28 @@ import model.Baseballs;
 import model.GameOneRound;
 import model.RandomBaseballNumbersGenerator;
 
+import java.util.List;
+
 import static view.Input.inputBaseballNumbers;
 import static view.StatusDisplay.showBallAndStrike;
 import static view.StatusDisplay.showEndGame;
 
 public class BaseballController {
-    private RandomBaseballNumbersGenerator randomBaseballNumbers;
     private GameOneRound gameOneRound;
+    private Baseballs inputBaseballNumbers;
+    private final Baseballs systemBaseballNumbers;
 
     BaseballController() {
-        Baseballs inputNumbers = new Baseballs(inputBaseballNumbers());
-        randomBaseballNumbers = new RandomBaseballNumbersGenerator();
-        gameOneRound = new GameOneRound(inputNumbers, randomBaseballNumbers.getRandomBaseballNumbers());
+        inputBaseballNumbers = new Baseballs(inputBaseballNumbers());
+        systemBaseballNumbers = new Baseballs (new RandomBaseballNumbersGenerator().getRandomBaseballNumbers());
+        gameOneRound = new GameOneRound(inputBaseballNumbers, systemBaseballNumbers);
     }
 
     public void playGame() {
         while (!gameOneRound.isThreeStrike()) {
-             gameOneRound.operate();
+            resultBallCountAndStrikeCount(gameOneRound.operate());
+            inputBaseballNumbers = new Baseballs(inputBaseballNumbers());
+            gameOneRound = new GameOneRound(inputBaseballNumbers,systemBaseballNumbers);
         }
         showEndGame();
     }
