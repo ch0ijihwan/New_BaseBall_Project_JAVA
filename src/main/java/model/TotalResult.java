@@ -16,13 +16,13 @@ public class TotalResult {
                 .count();
     }
 
-    public int countStrike() {
+    public int countStrikeScore() {
         return (int) this.comparedResult.stream()
                 .filter(baseballResult -> baseballResult == BallStatus.STRIKE_STATUS)
                 .count();
     }
 
     public boolean isResultThreeStrike() {
-        return countStrike() == 3;
+        return countStrikeScore() == 3;
     }
 }
