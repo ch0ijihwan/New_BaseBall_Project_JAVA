@@ -28,7 +28,7 @@ class TotalResultTest {
     @DisplayName("Ballstatus 리스트를 받아 그중 스트라이크의 갯수를 파악하여 반환하는지 확인")
     void countStrike(List<BallStatus> ballStatusesResult, int expect){
         totalResult = new TotalResult(ballStatusesResult);
-        assertThat(totalResult.countStrike()).isEqualTo(expect);
+        assertThat(totalResult.countStrikeScore()).isEqualTo(expect);
 
     }
     static Stream<Arguments> BaseballStatusResultForCheckBallParameterProvider() {
