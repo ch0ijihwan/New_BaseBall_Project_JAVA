@@ -23,7 +23,7 @@ public class BaseballController {
 
     public void playGame() {
         while (!round.isThreeStrike()) {
-            resultBallCountAndStrikeCount(round.operate());
+            resultBallCountAndStrikeCount(round.judgeResult());
             inputBaseballNumbers = new Baseballs(inputBaseballNumbers());
             round = new Round(inputBaseballNumbers,systemBaseballNumbers);
         }

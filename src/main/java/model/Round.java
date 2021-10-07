@@ -12,7 +12,7 @@ public class Round {
         comparedResult = uesrBaseballNumbers.compareThreeBall(systemBaseballNumbers);
     }
 
-    public List<Integer> operate() {
+    public List<Integer> judgeResult() {
         totalResult = new TotalResult(this.comparedResult);
         result.add(totalResult.countBallScore());
         result.add(totalResult.countStrikeScore());
