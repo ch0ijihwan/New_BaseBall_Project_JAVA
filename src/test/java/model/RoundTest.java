@@ -11,13 +11,13 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
-class GameOneRoundTest {
+class RoundTest {
     @ParameterizedTest
     @MethodSource("threeStrikeCountParameterProvider")
     @DisplayName("threeStrike 인 경우 true 반환을 확인.")
     void isOver(Baseballs inputNumbers, Baseballs randomNumbers, boolean expect) {
-        GameOneRound gameOneRound = new GameOneRound(inputNumbers, randomNumbers);
-        boolean resultStrikeCount = gameOneRound.isThreeStrike();
+        Round round = new Round(inputNumbers, randomNumbers);
+        boolean resultStrikeCount = round.isThreeStrike();
         assertThat(resultStrikeCount).isEqualTo(expect);
     }
 

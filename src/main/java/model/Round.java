@@ -3,12 +3,12 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameOneRound {
+public class Round {
     private TotalResult totalResult;
     private List<BallStatus> comparedResult;
     private List<Integer> result = new ArrayList<>();
 
-    public GameOneRound(Baseballs uesrBaseballNumbers, Baseballs systemBaseballNumbers) {
+    public Round(Baseballs uesrBaseballNumbers, Baseballs systemBaseballNumbers) {
         comparedResult = uesrBaseballNumbers.compareThreeBall(systemBaseballNumbers);
     }
 

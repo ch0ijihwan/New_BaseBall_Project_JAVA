@@ -1,8 +1,8 @@
 package controller;
 
 import model.Baseballs;
-import model.GameOneRound;
 import model.RandomBaseballNumbersGenerator;
+import model.Round;
 
 import java.util.List;
 
@@ -11,21 +11,21 @@ import static view.StatusDisplay.showBallAndStrike;
 import static view.StatusDisplay.showEndGame;
 
 public class BaseballController {
-    private GameOneRound gameOneRound;
+    private Round round;
     private Baseballs inputBaseballNumbers;
     private final Baseballs systemBaseballNumbers;
 
     BaseballController() {
         inputBaseballNumbers = new Baseballs(inputBaseballNumbers());
         systemBaseballNumbers = new Baseballs (new RandomBaseballNumbersGenerator().getRandomBaseballNumbers());
-        gameOneRound = new GameOneRound(inputBaseballNumbers, systemBaseballNumbers);
+        round = new Round(inputBaseballNumbers, systemBaseballNumbers);
     }
 
     public void playGame() {
-        while (!gameOneRound.isThreeStrike()) {
-            resultBallCountAndStrikeCount(gameOneRound.operate());
+        while (!round.isThreeStrike()) {
+            resultBallCountAndStrikeCount(round.operate());
             inputBaseballNumbers = new Baseballs(inputBaseballNumbers());
-            gameOneRound = new GameOneRound(inputBaseballNumbers,systemBaseballNumbers);
+            round = new Round(inputBaseballNumbers,systemBaseballNumbers);
         }
         showEndGame();
     }
