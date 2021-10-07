@@ -23,14 +23,6 @@ class TotalResultTest {
         assertThat(totalResult.countBallScore()).isEqualTo(expect);
     }
 
-    @ParameterizedTest
-    @MethodSource("BaseballStatusResultForCheckStrikeParameterProvider")
-    @DisplayName("Ballstatus 리스트를 받아 그중 스트라이크의 갯수를 파악하여 반환하는지 확인")
-    void countStrike(List<BallStatus> ballStatusesResult, int expect){
-        totalResult = new TotalResult(ballStatusesResult);
-        assertThat(totalResult.countStrikeScore()).isEqualTo(expect);
-
-    }
     static Stream<Arguments> BaseballStatusResultForCheckBallParameterProvider() {
         return Stream.of(arguments(Arrays.asList(BallStatus.STRIKE_STATUS, BallStatus.STRIKE_STATUS, BallStatus.STRIKE_STATUS),0),
                 arguments(Arrays.asList(BallStatus.BALL_STATUS, BallStatus.STRIKE_STATUS, BallStatus.STRIKE_STATUS),1),
@@ -39,6 +31,15 @@ class TotalResultTest {
                 arguments(Arrays.asList(BallStatus.BALL_STATUS, BallStatus.BALL_STATUS, BallStatus.NOTHING_STATUS),2),
                 arguments(Arrays.asList(BallStatus.BALL_STATUS, BallStatus.BALL_STATUS, BallStatus.BALL_STATUS),3),
                 arguments(Arrays.asList(BallStatus.STRIKE_STATUS, BallStatus.STRIKE_STATUS, BallStatus.STRIKE_STATUS),0));
+    }
+
+    @ParameterizedTest
+    @MethodSource("BaseballStatusResultForCheckStrikeParameterProvider")
+    @DisplayName("Ballstatus 리스트를 받아 그중 스트라이크의 갯수를 파악하여 반환하는지 확인")
+    void countStrike(List<BallStatus> ballStatusesResult, int expect){
+        totalResult = new TotalResult(ballStatusesResult);
+        assertThat(totalResult.countStrikeScore()).isEqualTo(expect);
+
     }
 
     static Stream<Arguments> BaseballStatusResultForCheckStrikeParameterProvider() {
