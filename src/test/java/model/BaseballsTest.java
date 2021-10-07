@@ -76,13 +76,13 @@ class BaseballsTest {
 
     static Stream<Arguments> createBaseballsParameterProvider() {
         return Stream.of(
-                arguments((Object) new String[]{"1", "2", "3"},
+                arguments(new String[]{"1", "2", "3"},
                         new Baseballs(Arrays.asList(new Baseball(new BaseballNumber("1"), 0), new Baseball(new BaseballNumber("2"), 1), new Baseball(new BaseballNumber("3"), 2)))),
 
-                arguments((Object) new String[]{"5", "4", "8"},
+                arguments(new String[]{"5", "4", "8"},
                         new Baseballs(Arrays.asList(new Baseball(new BaseballNumber("5"), 0), new Baseball(new BaseballNumber("4"), 1), new Baseball(new BaseballNumber("8"), 2)))),
 
-                arguments((Object) new String[]{"9", "2", "5"},
+                arguments(new String[]{"9", "2", "5"},
                         new Baseballs(Arrays.asList(new Baseball(new BaseballNumber("9"), 0), new Baseball(new BaseballNumber("2"), 1), new Baseball(new BaseballNumber("5"), 2))))
         );
     }
