@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Round {
     private TotalResult totalResult;
-    private List<BallStatus> comparedResult;
-    private List<Integer> result = new ArrayList<>();
+    private final List<BallStatus> comparedResult;
+    private final List<Integer> result = new ArrayList<>();
 
     public Round(Baseballs uesrBaseballNumbers, Baseballs systemBaseballNumbers) {
         comparedResult = uesrBaseballNumbers.compareThreeBall(systemBaseballNumbers);
