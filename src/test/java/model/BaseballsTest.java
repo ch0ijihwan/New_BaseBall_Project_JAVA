@@ -18,7 +18,6 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class BaseballsTest {
     private Baseballs baseballs;
-    private Baseballs otherBaseballs;
     List<Baseball> threeBalls = new ArrayList<>();
     List<Baseball> otherThreeBalls = new ArrayList<>();
 
@@ -71,7 +70,7 @@ class BaseballsTest {
     @DisplayName("공을 세개씩 가진 두 야구공을 비교하여, 그에대한 볼, 스트라이크, 낫씽을 리스트로 반환하는지 확인")
     void compareThreeBall() {
         baseballs = new Baseballs(threeBalls);
-        otherBaseballs = new Baseballs(otherThreeBalls);
+        Baseballs otherBaseballs = new Baseballs(otherThreeBalls);
         List<BallStatus> expect = new ArrayList<>();
         expect.add(BallStatus.STRIKE_STATUS);
         expect.add(BallStatus.NOTHING_STATUS);
