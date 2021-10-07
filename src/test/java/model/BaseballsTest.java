@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
@@ -41,6 +43,26 @@ class BaseballsTest {
     }
 
     @ParameterizedTest
+    @CsvSource(value = {"1235", "4512", "1234", "7658", "3758"})
+    @DisplayName("생성자에서 새로운 숫자야구 넘버를 받을 때, 올바르지 않은 값을 받은경우 (입력값이 세자리가 아닌경우) 예외 처리를 하는지 확인")
+    void validateNumber(String value) {
+        String[] tokens = value.split("");
+        assertThatThrownBy(() -> baseballs = new Baseballs(tokens))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("입력값이 3자리가 아닙니다.");
+    }
+
+    @ParameterizedTest
+    @CsvSource(value = {"133", "454", "121", "155", "338", "992"})
+    @DisplayName("생성자에서 새로운 숫자야구 넘버를 받을 때, 올바르지 않은 값을 받은경우 (중복된 수가 있는 경우) 예외 처리를 하는지 확인")
+    void validateNumber2(String value) {
+        String[] tokens = value.split("");
+        assertThatThrownBy(() -> baseballs = new Baseballs(tokens))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("중복되는 수가 있습니다.");
+    }
+
+    @ParameterizedTest
     @MethodSource("createBaseballsParameterProvider")
     @DisplayName("새로운 숫자야구 넘버를 입력 받을 시 threeBalls 리스트를 생성하는지에 대한 테스트 코드")
     void makeBaseballs(String[] inputNumbers, Baseballs expect) {
@@ -64,7 +86,6 @@ class BaseballsTest {
                         new Baseballs(Arrays.asList(new Baseball(new BaseballNumber("9"), 0), new Baseball(new BaseballNumber("2"), 1), new Baseball(new BaseballNumber("5"), 2))))
         );
     }
-
 
     @Test
     @DisplayName("공을 세개씩 가진 두 야구공을 비교하여, 그에대한 볼, 스트라이크, 낫씽을 리스트로 반환하는지 확인")
@@ -96,6 +117,4 @@ class BaseballsTest {
                 arguments(new Baseball(new BaseballNumber("1"), 2), new Baseball(new BaseballNumber("3"), 1), BallStatus.NOTHING_STATUS),
                 arguments(new Baseball(new BaseballNumber("1"), 2), new Baseball(new BaseballNumber("3"), 2), BallStatus.NOTHING_STATUS));
     }
-
-
 }
