@@ -14,8 +14,8 @@ class BaseballNumberTest {
     private BaseballNumber anotherNumber;
 
     @ParameterizedTest
-    @ValueSource(strings = {"=", "+", "%", "a", "?","0"})
-    @DisplayName("받은 값이 1 ~ 9숫자가 아닌경우 예외처리를 반환")
+    @ValueSource(strings = {"=", "+", "%", "a", "?", "0"})
+    @DisplayName("받은 값이 1 ~ 9 숫자가 아닌 경우 예외처리를 반환")
     void isNumber(String value) {
         assertThatThrownBy(() -> new BaseballNumber(value))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -32,17 +32,9 @@ class BaseballNumberTest {
     }
 
     @Test
-    @DisplayName("같은 한 객체의 Hashcode를 비교하여 같음을 확인하는 테스트 코드")
-    void HashCodeWork(){
+    @DisplayName("오버라이드 한 이퀄즈 테스트 하는 테스트 코드")
+    void EqualsWorkTest() {
         number = new BaseballNumber("1");
         assertThat(number.hashCode()).hasSameHashCodeAs(number.hashCode());
-    }
-
-    @Test
-    @DisplayName("서로다른 number 객체의 Hashcode를 비교하여 다름을 확인하는 테스트 코드 ")
-    void isHashCodeWork2(){
-        number = new BaseballNumber("1");
-        anotherNumber = new BaseballNumber("2");
-        assertThat(number.hashCode()).doesNotHaveSameHashCodeAs(anotherNumber.hashCode());
     }
 }
