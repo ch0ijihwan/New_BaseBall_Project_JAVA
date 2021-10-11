@@ -6,7 +6,11 @@ public class StatusDisplay {
     }
 
     public static void showBallAndStrike(int ball, int strike) {
-        System.out.println("Ball : " + ball + "   Strike : " + strike);
+        if (ball > 0 || strike > 0)
+            System.out.println("Ball : " + ball + "   Strike : " + strike);
+        if(ball ==0 && strike ==0){
+            System.out.println("Nothing");
+        }
     }
 
     public static void showStartGame() {
