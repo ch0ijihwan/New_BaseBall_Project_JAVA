@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Objects;
-
 public class BaseballNumber {
     private static final String NUMBER_REGEX = "^[1-9]";
     private final int number;
@@ -30,10 +28,5 @@ public class BaseballNumber {
         if (o == null || getClass() != o.getClass()) return false;
         BaseballNumber that = (BaseballNumber) o;
         return this.number == that.number;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(number);
     }
 }
