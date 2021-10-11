@@ -1,7 +1,7 @@
 package controller;
 
 import model.Baseballs;
-import model.RandomBaseballNumbersGenerator;
+import model.RandomBaseballsGenerator;
 import model.Round;
 
 import static view.Input.inputBaseballNumbers;
@@ -14,7 +14,7 @@ public class BaseballController {
 
     BaseballController() {
         inputBaseballNumbers = new Baseballs(inputBaseballNumbers());
-        systemBaseballNumbers = new Baseballs(new RandomBaseballNumbersGenerator().getRandomBaseballNumbers());
+        systemBaseballNumbers = new Baseballs(new RandomBaseballsGenerator().getRandomBaseballs());
     }
 
     public void playGame() {
