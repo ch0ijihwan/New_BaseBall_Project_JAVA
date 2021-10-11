@@ -1,27 +1,34 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Round {
-    private TotalResult totalResult;
-    private final List<BallStatus> comparedResult;
-    private final List<Integer> result = new ArrayList<>();
+    private static final int THREE_STRIKE = 3;
+    private Baseballs systemBaseballs;
+    private List<BallStatus> comparedResult;
 
-    public Round(Baseballs uesrBaseballNumbers, Baseballs systemBaseballNumbers) {
-        comparedResult = uesrBaseballNumbers.compareThreeBall(systemBaseballNumbers);
-    }
-
-    public List<Integer> judgeResult() {
-        totalResult = new TotalResult(this.comparedResult);
-        result.add(totalResult.countBallScore());
-        result.add(totalResult.countStrikeScore());
-
-        return result;
+    public Round(Baseballs userBaseballs, Baseballs systemBaseballs) {
+        this.systemBaseballs =  systemBaseballs;
+        comparedResult = systemBaseballs.compareThreeBall(userBaseballs);
     }
 
     public boolean isThreeStrike() {
-        totalResult = new TotalResult(comparedResult);
-        return totalResult.isResultThreeStrike();
+        return getStrikeCount() == THREE_STRIKE;
+    }
+    public void InputNewBaseballs(Baseballs userBaseballs){
+        comparedResult = systemBaseballs.compareThreeBall(userBaseballs);
+    }
+    public int getBallCount() {
+        return countScore(BallStatus.BALL_STATUS);
+    }
+
+    public int getStrikeCount(){
+        return countScore(BallStatus.STRIKE_STATUS);
+    }
+
+    private int countScore(BallStatus desiredValue) {
+        return (int) this.comparedResult.stream()
+                .filter(baseballResult -> baseballResult == desiredValue)
+                .count();
     }
 }
