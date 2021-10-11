@@ -15,7 +15,7 @@ class BaseballNumberTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"=", "+", "%", "a", "?","0"})
-    @DisplayName("받은 값이 1 ~ (숫자가 아닌경우 예외처리를 반환")
+    @DisplayName("받은 값이 1 ~ 9숫자가 아닌경우 예외처리를 반환")
     void isNumber(String value) {
         assertThatThrownBy(() -> new BaseballNumber(value))
                 .isInstanceOf(IllegalArgumentException.class)
