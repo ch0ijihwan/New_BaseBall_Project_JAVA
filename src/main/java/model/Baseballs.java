@@ -17,16 +17,11 @@ public class Baseballs {
     }
 
     public Baseballs(String[] inputNumbers) {
+        threeBalls  = new ArrayList<>();
         validateNumber(inputNumbers);
 
-        List<BaseballNumber> numbers;
-        numbers = Arrays.stream(inputNumbers)
-                .map(BaseballNumber::new)
-                .collect(Collectors.toList());
-
-        List<BaseballNumber> finalNumbers = numbers;
-        IntStream.range(0,NUMBER_LENGTH)
-                .forEach(position -> threeBalls.add(new Baseball(finalNumbers.get(position),position)));
+        IntStream.range(0, NUMBER_LENGTH)
+                .forEach(position -> threeBalls.add(new Baseball(new BaseballNumber(inputNumbers[position]), position)));
     }
 
     private void validateNumber(String[] token) {
@@ -44,9 +39,9 @@ public class Baseballs {
                 .collect(Collectors.toList());
     }
 
-    private BallStatus compareBall(Baseball anotherBalls) {
+    private BallStatus compareBall(Baseball anotherBall) {
         return threeBalls.stream()
-                .map(anotherBalls::checkBaseball)
+                .map(anotherBall::checkBaseball)
                 .filter(ballStatus -> ballStatus == BallStatus.BALL_STATUS || ballStatus == BallStatus.STRIKE_STATUS)
                 .findAny()
                 .orElse(BallStatus.NOTHING_STATUS);
