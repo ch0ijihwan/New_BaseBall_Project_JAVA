@@ -9,8 +9,16 @@ class RandomBaseballNumbersGeneratorTest {
     private static final RandomBaseballsGenerator randomBaseballNumbers = new RandomBaseballsGenerator();
 
     @Test
-    @DisplayName("램던 베이스볼의 갯수가 3개인지 확인")
+    @DisplayName("getRandomNumbers 호출시 3자릿수를 가지고 있는 int형 값이 반환되는지 확인")
     void randomBaseball() {
-        assertThat(randomBaseballNumbers.getRandomBaseballs().size()).isEqualTo(3);
+        //given
+        RandomNumberGenerator randomBaseballGenerator = new RandomNumberGenerator();
+        int expected = 3;
+
+        //when
+        int actual = randomBaseballGenerator.getRandomNumbers().length;
+
+        //then
+        assertThat(actual).isEqualTo(expected);
     }
 }
