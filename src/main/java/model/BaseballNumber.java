@@ -1,23 +1,17 @@
 package model;
 
+import java.util.Objects;
+
 public class BaseballNumber {
-    private static final String NUMBER_REGEX = "^[1-9]";
     private final int number;
 
-    public BaseballNumber(String number) {
-        isBlank(number);
+    public BaseballNumber(int number) {
         isNumber(number);
-        this.number = Integer.parseInt(number);
+        this.number = number;
     }
 
-    private void isBlank(String number) {
-        if (number.equals("")) {
-            throw new IllegalArgumentException("아무 값도 입력되지 않았습니다.");
-        }
-    }
-
-    private void isNumber(String number) {
-        if (!number.matches(NUMBER_REGEX)) {
+    private void isNumber(int number) {
+        if (!(1 <= number && number <= 9)) {
             throw new IllegalArgumentException("1~9에 있는 숫자가 아닙니다.");
         }
     }
@@ -28,5 +22,10 @@ public class BaseballNumber {
         if (o == null || getClass() != o.getClass()) return false;
         BaseballNumber that = (BaseballNumber) o;
         return this.number == that.number;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number);
     }
 }
