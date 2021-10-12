@@ -4,7 +4,6 @@ import java.util.Random;
 
 public class RandomUtil {
     private RandomUtil() {
-
     }
 
     private static final int RANDOM_MAX_BOUNDARY = 9;
