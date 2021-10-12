@@ -3,6 +3,8 @@ package model;
 import java.util.Objects;
 
 public class BaseballNumber {
+    private static final int MIN_NUMBER_BOUNDY = 1;
+    private static final int MAX_NUMBER_BOUNDY = 9;
     private final int number;
 
     public BaseballNumber(int number) {
@@ -11,7 +13,7 @@ public class BaseballNumber {
     }
 
     private void isNumber(int number) {
-        if (!(1 <= number && number <= 9)) {
+        if (!(MIN_NUMBER_BOUNDY<= number && number <= MAX_NUMBER_BOUNDY)) {
             throw new IllegalArgumentException("1~9에 있는 숫자가 아닙니다.");
         }
     }
