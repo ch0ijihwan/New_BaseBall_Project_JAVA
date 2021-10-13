@@ -1,28 +1,28 @@
 package controller;
 
 import model.Baseballs;
-import model.RandomBaseballsGenerator;
-import model.Round;
+import model.DtoInputNumbers;
+import model.Game;
+import model.RandomNumberGenerator;
 
 import static view.Input.inputBaseballNumbers;
 import static view.StatusDisplay.showBallAndStrike;
 import static view.StatusDisplay.showEndGame;
 
 public class BaseballController {
-    private Baseballs inputBaseballNumbers;
-    private final Baseballs systemBaseballNumbers;
-
+    private final Game game;
+    private DtoInputNumbers dtoInputNumbers;
     BaseballController() {
         inputBaseballNumbers = new Baseballs(inputBaseballNumbers());
         systemBaseballNumbers = new Baseballs(new RandomBaseballsGenerator().getRandomBaseballs());
     }
 
     public void playGame() {
-        Round round = new Round(inputBaseballNumbers, systemBaseballNumbers);
-        while (!round.isThreeStrike()) {
-            showBallAndStrike(round.getBallCount(), round.getStrikeCount());
-            inputBaseballNumbers = new Baseballs(inputBaseballNumbers());
-            round.InputNewBaseballs(inputBaseballNumbers);
+        while (!game.isThreeStrike()) {
+            showBallAndStrike(game.countBallStatus(), game.contStrikeStatus());
+            dtoInputNumbers = new DtoInputNumbers(inputBaseballNumbers());
+            Baseballs inputBaseballNumbers = new Baseballs(dtoInputNumbers.getInputNumbers());
+            game.inputNewBaseballs(inputBaseballNumbers);
         }
         showEndGame();
     }
