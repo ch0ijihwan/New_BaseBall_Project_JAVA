@@ -8,7 +8,7 @@ public class StatusDisplay {
     public static void showBallAndStrike(int ball, int strike) {
         if (ball > 0 || strike > 0)
             System.out.println("Ball : " + ball + "   Strike : " + strike);
-        if(ball ==0 && strike ==0){
+        if (ball == 0 && strike == 0) {
             System.out.println("Nothing");
         }
     }
