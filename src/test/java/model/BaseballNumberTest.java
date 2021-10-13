@@ -9,13 +9,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class BaseballNumberTest {
-    private BaseballNumber number;
-    private BaseballNumber anotherNumber;
-
     @ParameterizedTest
-    @ValueSource(strings = {"0", "-1"})
+    @ValueSource(strings = {"-1","0"})
     @DisplayName("생성자로부터 받은 받은 값이 1 ~ 9 사이에 있는 숫자가 아닌 경우 예외처리를 반환")
     void isNumber(int value) {
+        //then
         assertThatThrownBy(() -> new BaseballNumber(value))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("1~9에 있는 숫자가 아닙니다.");
