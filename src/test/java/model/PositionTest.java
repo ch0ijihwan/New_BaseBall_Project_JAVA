@@ -18,7 +18,7 @@ class PositionTest {
         //then
         assertThatThrownBy(() -> new Position(actual))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("포지션의 범위가 0~2 사이가 아닙니다.");
+                .hasMessage("공위치의 인덱스 범위가 0~2 사이가 아닙니다.");
     }
 
     @Test
