@@ -22,6 +22,7 @@ class GameTest {
         firstBall = new Baseball(1, 0);
         secondBall = new Baseball(2, 1);
         thirdBall = new Baseball(3, 2);
+        baseballs = new Baseballs(Arrays.asList(firstBall, secondBall, thirdBall));
     }
 
     @ParameterizedTest
@@ -32,8 +33,6 @@ class GameTest {
         Baseball otherFirstBall = new Baseball(firstNumber, 0);
         Baseball otherSecondBall = new Baseball(secondNumber, 1);
         Baseball otherThirdBall = new Baseball(thirdNumber, 2);
-
-        baseballs = new Baseballs(Arrays.asList(firstBall, secondBall, thirdBall));
         otherBaseballs = new Baseballs(Arrays.asList(otherFirstBall, otherSecondBall, otherThirdBall));
         game = new Game(baseballs, otherBaseballs);
 
@@ -52,8 +51,6 @@ class GameTest {
         Baseball otherFirstBall = new Baseball(firstNumber, 0);
         Baseball otherSecondBall = new Baseball(secondNumber, 1);
         Baseball otherThirdBall = new Baseball(thirdNumber, 2);
-
-        baseballs = new Baseballs(Arrays.asList(firstBall, secondBall, thirdBall));
         otherBaseballs = new Baseballs(Arrays.asList(otherFirstBall, otherSecondBall, otherThirdBall));
         game = new Game(baseballs, otherBaseballs);
 
@@ -72,8 +69,6 @@ class GameTest {
         Baseball otherFirstBall = new Baseball(firstNumber, 0);
         Baseball otherSecondBall = new Baseball(secondNumber, 1);
         Baseball otherThirdBall = new Baseball(thirdNumber, 2);
-
-        baseballs = new Baseballs(Arrays.asList(firstBall, secondBall, thirdBall));
         otherBaseballs = new Baseballs(Arrays.asList(otherFirstBall, otherSecondBall, otherThirdBall));
         Game game = new Game(baseballs, otherBaseballs);
 
