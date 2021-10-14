@@ -8,7 +8,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertAll;
 
 class GameTest {
     private Game game;
@@ -28,7 +27,8 @@ class GameTest {
     @ParameterizedTest
     @CsvSource(value = {"1,2,3,0", "3,1,2,3", "3,2,1,2", "4,5,6,0"})
     @DisplayName("countBall 실행시 볼 개수를 받아 반환하는지 확인")
-    void countBall(int firstNumber, int secondNumber, int thirdNumber, int ballExpect) {
+    void countBall(int firstNumber, int secondNumber, int thirdNumber, int expect) {
+        //given
         Baseball otherFirstBall = new Baseball(firstNumber, 0);
         Baseball otherSecondBall = new Baseball(secondNumber, 1);
         Baseball otherThirdBall = new Baseball(thirdNumber, 2);
@@ -36,15 +36,19 @@ class GameTest {
         baseballs = new Baseballs(Arrays.asList(firstBall, secondBall, thirdBall));
         otherBaseballs = new Baseballs(Arrays.asList(otherFirstBall, otherSecondBall, otherThirdBall));
         game = new Game(baseballs, otherBaseballs);
-        assertAll(
-                () -> assertThat(game.countBallStatus()).isEqualTo(ballExpect)
-        );
+
+        //when
+        int actual = game.countBallStatus();
+
+        //Then
+        assertThat(actual).isEqualTo(expect);
     }
 
     @ParameterizedTest
     @CsvSource(value = {"1,2,3,3", "3,1,2,0", "3,2,1,1", "4,5,6,0"})
     @DisplayName("countStrike 실행시 스트라이크 개수를 받아 반환하는지 확인")
-    void countStrike(int firstNumber, int secondNumber, int thirdNumber, int strikeExpect) {
+    void countStrike(int firstNumber, int secondNumber, int thirdNumber, int expect) {
+        //given
         Baseball otherFirstBall = new Baseball(firstNumber, 0);
         Baseball otherSecondBall = new Baseball(secondNumber, 1);
         Baseball otherThirdBall = new Baseball(thirdNumber, 2);
@@ -52,15 +56,19 @@ class GameTest {
         baseballs = new Baseballs(Arrays.asList(firstBall, secondBall, thirdBall));
         otherBaseballs = new Baseballs(Arrays.asList(otherFirstBall, otherSecondBall, otherThirdBall));
         game = new Game(baseballs, otherBaseballs);
-        assertAll(
-                () -> assertThat(game.contStrikeStatus()).isEqualTo(strikeExpect)
-        );
+
+        //when
+        int actual = game.contStrikeStatus();
+
+        //Then
+        assertThat(actual).isEqualTo(expect);
     }
 
     @ParameterizedTest
     @CsvSource(value = {"1,2,3,true", "3,2,1,false"})
     @DisplayName("threeStrike 인 경우 true 반환을 확인.")
     void isOver(int firstNumber, int secondNumber, int thirdNumber, boolean expect) {
+        //given
         Baseball otherFirstBall = new Baseball(firstNumber, 0);
         Baseball otherSecondBall = new Baseball(secondNumber, 1);
         Baseball otherThirdBall = new Baseball(thirdNumber, 2);
@@ -69,6 +77,10 @@ class GameTest {
         otherBaseballs = new Baseballs(Arrays.asList(otherFirstBall, otherSecondBall, otherThirdBall));
         Game game = new Game(baseballs, otherBaseballs);
 
-        assertThat(game.isThreeStrike()).isEqualTo(expect);
+        //when
+        Boolean actual = game.isThreeStrike();
+
+        //Then
+        assertThat(actual).isEqualTo(expect);
     }
 }
