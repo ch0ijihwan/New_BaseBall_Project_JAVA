@@ -23,8 +23,7 @@ class PositionTest {
 
     @Test
     @DisplayName(" value()메서드 호출시,생성자에서 부터 받은 Postion을 제대로 반환하는지 확인하는 테스트 코드.")
-    void value()
-    {
+    void value() {
         //given
         int expect = 0;
         Position position = new Position(expect);
@@ -35,5 +34,4 @@ class PositionTest {
         //then
         assertThat(actual).isEqualTo(expect);
     }
-
 }
