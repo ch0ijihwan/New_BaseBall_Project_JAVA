@@ -34,23 +34,24 @@ class BaseballsTest {
     static Stream<Arguments> createBaseballsParameterProvider() {
         return Stream.of(
                 arguments(new int[]{1, 2, 3},
-                        new Baseballs(Arrays.asList(new Baseball(new BaseballNumber(1), 0), new Baseball(new BaseballNumber(2), 1), new Baseball(new BaseballNumber(3), 2)))),
+                        new Baseballs(Arrays.asList(new Baseball(1, 0), new Baseball(2, 1), new Baseball(3, 2))),
                 arguments(new int[]{5, 4, 8},
-                        new Baseballs(Arrays.asList(new Baseball(new BaseballNumber(5), 0), new Baseball(new BaseballNumber(4), 1), new Baseball(new BaseballNumber(8), 2)))),
+                        new Baseballs(Arrays.asList(new Baseball(5, 0), new Baseball(4, 1), new Baseball(8, 2)))),
                 arguments(new int[]{9, 2, 5},
-                        new Baseballs(Arrays.asList(new Baseball(new BaseballNumber(9), 0), new Baseball(new BaseballNumber(2), 1), new Baseball(new BaseballNumber(5), 2))))
+                        new Baseballs(Arrays.asList(new Baseball(9, 0), new Baseball(2, 1), new Baseball(5, 2))))
+                )
         );
     }
 
     @Test
     @DisplayName("공을 세개씩 가진 두 야구공리스트을 비교하여, 그에대한 볼, 스트라이크, 낫씽을 리스트로 반환하는지 확인")
     void compareThreeBall() {
-        Baseball firstBall = new Baseball(new BaseballNumber(1), 0);
-        Baseball secondBall = new Baseball(new BaseballNumber(2), 1);
-        Baseball thirdBall = new Baseball(new BaseballNumber(3), 2);
-        Baseball otherFirstBall = new Baseball(new BaseballNumber(1), 0);
-        Baseball otherSecondBall = new Baseball(new BaseballNumber(3), 1);
-        Baseball otherThirdBall = new Baseball(new BaseballNumber(8), 2);
+        Baseball firstBall = new Baseball(1, 0);
+        Baseball secondBall = new Baseball(2, 1);
+        Baseball thirdBall = new Baseball(3, 2);
+        Baseball otherFirstBall = new Baseball(1, 0);
+        Baseball otherSecondBall = new Baseball(3, 1);
+        Baseball otherThirdBall = new Baseball(8, 2);
 
         baseballs = new Baseballs(Arrays.asList(firstBall, secondBall, thirdBall));
         otherBaseballs = new Baseballs(Arrays.asList(otherFirstBall, otherSecondBall, otherThirdBall));
