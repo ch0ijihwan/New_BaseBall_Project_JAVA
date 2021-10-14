@@ -2,20 +2,20 @@ package model;
 
 public class Baseball {
     private final BaseballNumber number;
-    private final int position;
+    private final Position position;
 
-    public Baseball(BaseballNumber baseBallNumber, int position) {
-        number = baseBallNumber;
+    public Baseball(BaseballNumber baseBallNumber, Position position) {
+        this.number = baseBallNumber;
         this.position = position;
     }
 
-    BallStatus checkBaseball(Baseball anotherBall) {
-        if (this.number.equals(anotherBall.number) && this.position == anotherBall.position) {
-            return BallStatus.STRIKE_STATUS;
+    public BallStatus judgeBallStatus(Baseball anotherBall) {
+        if (this.number.equals(anotherBall.number) && this.position.equals(anotherBall.position)) {
+            return BallStatus.STRIKE;
         }
         if (this.number.equals(anotherBall.number)) {
             return BallStatus.BALL_STATUS;
         }
-        return BallStatus.NOTHING_STATUS;
+        return BallStatus.NOTHING;
     }
 }
