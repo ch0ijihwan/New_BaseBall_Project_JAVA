@@ -46,6 +46,7 @@ class BaseballsTest {
     @Test
     @DisplayName("공을 세개씩 가진 두 야구공리스트을 비교하여, 그에대한 볼, 스트라이크, 낫씽을 리스트로 반환하는지 확인")
     void compareThreeBall() {
+        //given
         Baseball firstBall = new Baseball(1, 0);
         Baseball secondBall = new Baseball(2, 1);
         Baseball thirdBall = new Baseball(3, 2);
@@ -57,6 +58,10 @@ class BaseballsTest {
         otherBaseballs = new Baseballs(Arrays.asList(otherFirstBall, otherSecondBall, otherThirdBall));
         List<BallStatus> expect = Arrays.asList(BallStatus.STRIKE, BallStatus.NOTHING, BallStatus.BALL);
 
-        assertThat(baseballs.compareThreeBall(otherBaseballs)).isEqualTo(expect);
+        //when
+        List<BallStatus> actual = baseballs.compareThreeBall(otherBaseballs);
+
+        //Then
+        assertThat(actual).isEqualTo(expect);
     }
 }
