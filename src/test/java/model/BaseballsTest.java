@@ -16,7 +16,6 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class BaseballsTest {
     private Baseballs baseballs;
-    private Baseballs otherBaseballs;
 
     @ParameterizedTest
     @MethodSource("createBaseballsParameterProvider")
@@ -35,10 +34,10 @@ class BaseballsTest {
         return Stream.of(
                 arguments(new int[]{1, 2, 3},
                         new Baseballs(Arrays.asList(new Baseball(1, 0), new Baseball(2, 1), new Baseball(3, 2))),
-                arguments(new int[]{5, 4, 8},
-                        new Baseballs(Arrays.asList(new Baseball(5, 0), new Baseball(4, 1), new Baseball(8, 2)))),
-                arguments(new int[]{9, 2, 5},
-                        new Baseballs(Arrays.asList(new Baseball(9, 0), new Baseball(2, 1), new Baseball(5, 2))))
+                        arguments(new int[]{5, 4, 8},
+                                new Baseballs(Arrays.asList(new Baseball(5, 0), new Baseball(4, 1), new Baseball(8, 2)))),
+                        arguments(new int[]{9, 2, 5},
+                                new Baseballs(Arrays.asList(new Baseball(9, 0), new Baseball(2, 1), new Baseball(5, 2))))
                 )
         );
     }
@@ -55,7 +54,7 @@ class BaseballsTest {
         Baseball otherThirdBall = new Baseball(8, 2);
 
         baseballs = new Baseballs(Arrays.asList(firstBall, secondBall, thirdBall));
-        otherBaseballs = new Baseballs(Arrays.asList(otherFirstBall, otherSecondBall, otherThirdBall));
+        Baseballs otherBaseballs = new Baseballs(Arrays.asList(otherFirstBall, otherSecondBall, otherThirdBall));
         List<BallStatus> expect = Arrays.asList(BallStatus.STRIKE, BallStatus.NOTHING, BallStatus.BALL);
 
         //when
