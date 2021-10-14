@@ -30,7 +30,7 @@ public class Baseballs {
 
     private BallStatus compareBall(Baseball anotherBall) {
         return threeBalls.stream()
-                .map(anotherBall::checkBaseball)
+                .map(anotherBall::judgeBallStatus)
                 .filter(ballStatus -> ballStatus == BallStatus.BALL || ballStatus == BallStatus.STRIKE)
                 .findAny()
                 .orElse(BallStatus.NOTHING);
