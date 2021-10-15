@@ -21,7 +21,7 @@ class PositionTest {
     }
 
     @Test
-    @DisplayName(" value()메서드 호출시,생성자에서 부터 받은 Postion을 제대로 반환하는지 확인하는 테스트 코드.")
+    @DisplayName(" value()메서드 호출시,생성자에서 부터 받은 Position을 제대로 반환하는지 확인하는 테스트 코드.")
     void value() {
         //given
         int expect = 0;
