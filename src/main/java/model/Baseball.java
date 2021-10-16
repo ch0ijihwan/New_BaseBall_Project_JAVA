@@ -1,6 +1,7 @@
-package model.vo;
+package model;
 
-import model.BallStatus;
+import model.vo.BaseballNumber;
+import model.vo.Position;
 
 public class Baseball {
     private final BaseballNumber number;

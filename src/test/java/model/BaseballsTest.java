@@ -1,6 +1,5 @@
 package model;
 
-import model.vo.Baseball;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
