@@ -1,9 +1,8 @@
 package model;
 
+import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
-import java.util.stream.IntStream;
 
 import static util.RandomUtil.generateRandomNumber;
 
@@ -20,12 +19,7 @@ public class RandomNumberGenerator {
     }
 
     public int[] getRandomNumbers() {
-        int[] randomNumbers = new int[RANDOM_NUMBER_SIZE];
-        Iterator<Integer> iterThreeNumbers = threeNumbers.iterator();
-
-        IntStream.range(0, RANDOM_NUMBER_SIZE)
-                .forEach(index -> randomNumbers[index] = iterThreeNumbers.next());
-
-        return randomNumbers;
+        Integer[] randomNumbers = threeNumbers.toArray(new Integer[0]);
+        return Arrays.stream(randomNumbers).mapToInt(Integer::intValue).toArray();
     }
 }
