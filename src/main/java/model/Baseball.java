@@ -7,13 +7,9 @@ public class Baseball {
     private final BaseballNumber number;
     private final Position position;
 
-    public Baseball(BaseballNumber baseBallNumber, Position position) {
-        this.number = baseBallNumber;
-        this.position = position;
-    }
-
-    public Baseball(final int baseballNumber, final int position) {
-        this(new BaseballNumber(baseballNumber), new Position(position));
+    public Baseball(int baseBallNumber, int position) {
+        this.number = new BaseballNumber(baseBallNumber);
+        this.position = new Position(position);
     }
 
     public BallStatus judgeBallStatus(Baseball anotherBall) {
