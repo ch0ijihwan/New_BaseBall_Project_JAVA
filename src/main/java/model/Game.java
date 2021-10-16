@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Game {
     private static final int THREE_STRIKE = 3;
-    private Baseballs systemBaseballs;
+    private final Baseballs systemBaseballs;
     private List<BallStatus> comparedResult;
 
     public Game(Baseballs userBaseballs, Baseballs systemBaseballs) {
