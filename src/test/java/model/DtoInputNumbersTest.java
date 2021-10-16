@@ -26,7 +26,7 @@ class DtoInputNumbersTest {
 
     @ParameterizedTest
     @CsvSource(value = {"12", "1234"})
-    @DisplayName("생성자에서 새로운 숫자야구 넘버를 받을 때, 올바르지 않은 값을 받은경우 (입력값이 세자리가 아닌경우) 예외 처리를 하는지 확인")
+    @DisplayName("입력값이 세자리가 아닌 숫자로 객체를 생성하면 예외를 발생시킨다.")
     void validateNumberLength(String value) {
         //given
         String[] tokens = value.split("");
