@@ -4,10 +4,12 @@ import java.util.Arrays;
 
 public class DtoInputNumbers {
     private static final int NUMBER_LENGTH = 3;
-    private int[] inputNumbers;
+    private final int[] inputNumbers;
 
     public DtoInputNumbers(String[] tokens) {
-        this.inputNumbers = Arrays.stream(tokens).mapToInt(Integer::parseInt).toArray();
+        this.inputNumbers = Arrays.stream(tokens)
+                .mapToInt(Integer::parseInt)
+                .toArray();
         validateNumbers(inputNumbers);
     }
 
