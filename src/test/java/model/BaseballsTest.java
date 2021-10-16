@@ -44,7 +44,7 @@ class BaseballsTest {
     }
 
     @Test
-    @DisplayName("공을 세개씩 가진 두 야구공리스트을 비교하여, 그에대한 볼, 스트라이크, 낫씽을 리스트로 반환하는지 확인")
+    @DisplayName("공을 세개씩 가진 두 야구공리스트을 비교하여, 그 비교값(볼, 스트라이크, 낫씽)을 리스트화 하여 반환하는지 확인")
     void compareThreeBall() {
         //given
         Baseball firstBall = new Baseball(1, 0);
