@@ -5,15 +5,15 @@ import java.util.Objects;
 public class Position {
     private static final int MIN_BOUNDARY = 0;
     private static final int MAX_BOUNDARY = 2;
-    private final int index;
+    private final int value;
 
-    public Position(int index) {
-        validateRangeOfNumber(index);
-        this.index = index;
+    public Position(int value) {
+        validateRangeOfNumber(value);
+        this.value = value;
     }
 
     public int value() {
-        return index;
+        return value;
     }
 
     private void validateRangeOfNumber(int position) {
@@ -27,11 +27,11 @@ public class Position {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Position position1 = (Position) o;
-        return index == position1.index;
+        return value == position1.value;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(index);
+        return Objects.hash(value);
     }
 }
