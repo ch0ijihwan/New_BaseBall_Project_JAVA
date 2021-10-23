@@ -6,7 +6,11 @@ public class StatusDisplay {
     }
 
     public static void showBallAndStrike(int ball, int strike) {
-        System.out.println("Ball : " + ball + "   Strike : " + strike);
+        if (ball > 0 || strike > 0)
+            System.out.println("Ball : " + ball + "   Strike : " + strike);
+        if (ball == 0 && strike == 0) {
+            System.out.println("Nothing");
+        }
     }
 
     public static void showStartGame() {
@@ -19,9 +23,5 @@ public class StatusDisplay {
 
     public static void showNewGameQuestion() {
         System.out.println("게임을 재실행 하려면 1을 누르세요 \n 그렇지 않다면 아무키나 누르세요.");
-    }
-
-    public static void showRoundCount(int roundCount) {
-        System.out.println("현재 라운드 : " + roundCount);
     }
 }

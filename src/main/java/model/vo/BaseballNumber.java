@@ -1,25 +1,19 @@
-package model;
+package model.vo;
 
 import java.util.Objects;
 
 public class BaseballNumber {
-    private static final String NUMBER_REGEX = "^[1-9]";
+    private static final int MIN_NUMBER_BOUNDARY = 1;
+    private static final int MAX_NUMBER_BOUNDARY = 9;
     private final int number;
 
-    public BaseballNumber(String number) {
-        isBlank(number);
+    public BaseballNumber(int number) {
         isNumber(number);
-        this.number = Integer.parseInt(number);
+        this.number = number;
     }
 
-    private void isBlank(String number) {
-        if (number.equals("")) {
-            throw new IllegalArgumentException("아무 값도 입력되지 않았습니다.");
-        }
-    }
-
-    private void isNumber(String number) {
-        if (!number.matches(NUMBER_REGEX)) {
+    private void isNumber(int number) {
+        if (!(MIN_NUMBER_BOUNDARY <= number && number <= MAX_NUMBER_BOUNDARY)) {
             throw new IllegalArgumentException("1~9에 있는 숫자가 아닙니다.");
         }
     }

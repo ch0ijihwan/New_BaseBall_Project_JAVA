@@ -1,21 +1,24 @@
 package model;
 
+import model.vo.BaseballNumber;
+import model.vo.Position;
+
 public class Baseball {
     private final BaseballNumber number;
-    private final int position;
+    private final Position position;
 
-    public Baseball(BaseballNumber baseBallNumber, int position) {
-        number = baseBallNumber;
-        this.position = position;
+    public Baseball(int baseBallNumber, int position) {
+        this.number = new BaseballNumber(baseBallNumber);
+        this.position = new Position(position);
     }
 
-    BallStatus checkBaseball(Baseball anotherBall) {
-        if (this.number.equals(anotherBall.number) && this.position == anotherBall.position) {
-            return BallStatus.STRIKE_STATUS;
+    public BallStatus judgeBallStatus(Baseball anotherBall) {
+        if (this.number.equals(anotherBall.number) && this.position.equals(anotherBall.position)) {
+            return BallStatus.STRIKE;
         }
         if (this.number.equals(anotherBall.number)) {
-            return BallStatus.BALL_STATUS;
+            return BallStatus.BALL;
         }
-        return BallStatus.NOTHING_STATUS;
+        return BallStatus.NOTHING;
     }
 }

@@ -10,9 +10,7 @@ public class Input {
     }
 
     public static String[] inputBaseballNumbers() {
-        return SCANNER.next()
-                .trim()
-                .split("");
+        return SCANNER.nextLine().split("");
     }
 
     public static boolean askReplayGame() {
