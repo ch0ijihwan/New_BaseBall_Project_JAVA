@@ -28,7 +28,7 @@ class PositionTest {
     @ParameterizedTest
     @DisplayName("Position 객체 생성 시, 생성자의 파라미터로 부터 받은 값이 1,2,3 이 아니라면 예외처리를 반환한다.")
     @CsvSource(value =  {"0","4"})
-    void validateNumberBoundary(int input) {
+    void validatePositionBoundary(int input) {
         //then
         assertThatThrownBy(() -> new Position(input))
                 .isInstanceOf(IllegalArgumentException.class)

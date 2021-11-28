@@ -8,11 +8,11 @@ public class Position {
     private final int value;
 
     public Position(final int value) {
-        validateNumberBoundary(value);
+        validatePositionBoundary(value);
         this.value = value;
     }
 
-    private void validateNumberBoundary(final int value) {
+    private void validatePositionBoundary(final int value) {
         if (MIN_BALL_NUMBER_RANGE > value || value >= MAX_BALL_NUMBER_RANGE) {
             throw new IllegalArgumentException("공의 Position 이 1,2,3 의 숫자가 아닙니다.");
         }
