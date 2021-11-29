@@ -3,8 +3,8 @@ package model;
 import java.util.Objects;
 
 public class Position {
-    private static final int MAX_BALL_NUMBER_RANGE = 3;
-    private static final int MIN_BALL_NUMBER_RANGE = 1;
+    private static final int MAX_BALL_NUMBER_RANGE = 2;
+    private static final int MIN_BALL_NUMBER_RANGE = 0;
     private final int value;
 
     public Position(final int value) {
@@ -14,7 +14,7 @@ public class Position {
 
     private void validatePositionBoundary(final int value) {
         if (value < MIN_BALL_NUMBER_RANGE || value > MAX_BALL_NUMBER_RANGE) {
-            throw new IllegalArgumentException("공의 Position 이 1,2,3 의 숫자가 아닙니다.");
+            throw new IllegalArgumentException("공의 Position 이 0,1,2 의 숫자가 아닙니다.");
         }
     }
 
