@@ -50,7 +50,7 @@ class BallTest {
         return Stream.of(
                 arguments(new Ball(1, 1), BallStatus.STRIKE),
                 arguments(new Ball(1, 2), BallStatus.BALL),
-                arguments(new Ball(3, 3), BallStatus.NOTHING)
+                arguments(new Ball(2, 2), BallStatus.NOTHING)
         );
     }
 }
