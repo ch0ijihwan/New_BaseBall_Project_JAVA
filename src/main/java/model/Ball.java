@@ -11,14 +11,18 @@ public class Ball {
         this.position = new Position(inputtedPosition);
     }
 
-    public BallStatus compareBall(Ball anotherBall) {
+    public BallStatus compareBallStatus(Ball anotherBall) {
         if (baseballNumber.equals(anotherBall.baseballNumber) && position.equals(anotherBall.position)) {
             return BallStatus.STRIKE;
         }
-        if (baseballNumber.equals(anotherBall.baseballNumber)) {
+        if (baseballNumber.equals(anotherBall.baseballNumber) && !position.equals(anotherBall.position)) {
             return BallStatus.BALL;
         }
         return BallStatus.NOTHING;
+    }
+
+    public int getBallPositionValue() {
+        return position.getValue();
     }
 
     @Override
