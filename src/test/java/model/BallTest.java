@@ -40,7 +40,7 @@ class BallTest {
         ball = new Ball(inputtedBaseballNumber, inputtedPosition);
 
         //when
-        BallStatus actualBallStatus = ball.compareBall(anotherBall);
+        BallStatus actualBallStatus = ball.compareBallStatus(anotherBall);
 
         //then
         assertThat(actualBallStatus).isEqualTo(expectedStatus);
