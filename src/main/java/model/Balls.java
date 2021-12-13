@@ -1,0 +1,61 @@
+package model;
+
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
+public class Balls {
+    private final List<Ball> threeBalls;
+
+    public Balls(List<Integer> inputtedBallNumbers) {
+        validateBallsSize(inputtedBallNumbers);
+        threeBalls = IntStream.range(0, inputtedBallNumbers.size())
+                .mapToObj(index -> new Ball(inputtedBallNumbers.get(index), index))
+                .collect(Collectors.toUnmodifiableList());
+    }
+
+    private void validateBallsSize(List<Integer> inputtedBallNumbers) {
+        if (inputtedBallNumbers.stream().distinct().count() != 3) {
+            throw new IllegalArgumentException("숫자 야구 게임의 숫자 입력 길이는 3자리 입니다.");
+        }
+    }
+
+    public List<BallStatus> compareThreeBall(Balls anotherBalls) {
+        return threeBalls.stream()
+                .map(anotherBalls::compareBall)
+                .collect(Collectors.toList());
+    }
+
+    private BallStatus compareBall(Ball anotherBall) {
+        return threeBalls.stream()
+                .map(anotherBall::compareBallStatus)
+                .filter(ballStatus -> ballStatus == BallStatus.BALL || ballStatus == BallStatus.STRIKE)
+                .findAny()
+                .orElse(BallStatus.NOTHING);
+    }
+
+    public int getBallPosition(int index) {
+        return threeBalls.get(index).getBallPositionValue();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Balls balls1 = (Balls) o;
+        return Objects.equals(threeBalls, balls1.threeBalls);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(threeBalls);
+    }
+
+    @Override
+    public String toString() {
+        return "Balls{" +
+                "balls=" + threeBalls +
+                '}';
+    }
+}
