@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Balls {
+    private static final int NUMBER_OF_BASEBALL_GAME_INPUT = 3;
     private final List<Ball> threeBalls;
 
     public Balls(List<Integer> inputtedBallNumbers) {
@@ -16,7 +17,7 @@ public class Balls {
     }
 
     private void validateBallsSize(List<Integer> inputtedBallNumbers) {
-        if (inputtedBallNumbers.stream().distinct().count() != 3) {
+        if (inputtedBallNumbers.stream().distinct().count() != NUMBER_OF_BASEBALL_GAME_INPUT) {
             throw new IllegalArgumentException("숫자 야구 게임의 숫자 입력 길이는 3자리 입니다.");
         }
     }
