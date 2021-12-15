@@ -1,6 +1,6 @@
 package model;
 
-import model.ball.Ball;
+import model.ball.vo.Position;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class PositionTest {
-    private Ball.Position position;
+    private Position position;
 
     @Test
     @DisplayName("Position 객체 생성 시, 생성자의 파라미터로 부터 받은 값을 저장한다.")
@@ -20,10 +20,10 @@ class PositionTest {
         int expect = 1;
 
         //when
-        position = new Ball.Position(input);
+        position = new Position(input);
 
         //then
-        assertThat(position).isEqualTo(new Ball.Position(expect));
+        assertThat(position).isEqualTo(new Position(expect));
     }
 
     @ParameterizedTest
@@ -31,7 +31,7 @@ class PositionTest {
     @CsvSource(value = {"-1", "3"})
     void validatePositionBoundary(int input) {
         //then
-        assertThatThrownBy(() -> new Ball.Position(input))
+        assertThatThrownBy(() -> new Position(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("공의 Position 이 0,1,2 의 숫자가 아닙니다.");
     }
@@ -42,7 +42,7 @@ class PositionTest {
         //given
         int input = 1;
         int expect = 1;
-        position = new Ball.Position(input);
+        position = new Position(input);
 
         //when
         int actual = position.getValue();

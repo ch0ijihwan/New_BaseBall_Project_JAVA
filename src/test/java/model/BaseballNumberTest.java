@@ -31,7 +31,7 @@ class BaseballNumberTest {
     @DisplayName("validateBaseballNumberBoundary() 호출 시, 파라미터로 부터 입력받은 야구 숫자에 대한 유효성 검사를 한다.")
     @CsvSource(value = {"0", "10"})
     void validateBaseballNumberBoundary(int input) {
-        assertThatThrownBy(()->new Ball.BaseballNumber(input))
+        assertThatThrownBy(()->new BaseballNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("야구 숫자의 범위는 1 ~ 9 여야만 합니다.");
     }

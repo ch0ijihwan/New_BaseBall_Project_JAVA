@@ -1,7 +1,6 @@
 package model;
 
 import model.ball.Ball;
-import model.ball.BallStatus;
 
 import java.util.List;
 import java.util.Objects;

@@ -1,7 +1,6 @@
 package model;
 
 import model.ball.Ball;
-import model.ball.BallStatus;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
