@@ -44,7 +44,7 @@ class BallsTest {
 
         //then
         assertAll(
-                () -> assertThat(actualBalls.getBallPosition(0)).isEqualTo(0),
+                () -> assertThat(actualBalls.getBallPosition(0)).   isEqualTo(0),
                 () -> assertThat(actualBalls.getBallPosition(1)).isEqualTo(1),
                 () -> assertThat(actualBalls.getBallPosition(2)).isEqualTo(2)
         );
