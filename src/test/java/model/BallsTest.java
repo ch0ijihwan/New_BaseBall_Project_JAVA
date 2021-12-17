@@ -19,8 +19,22 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class BallsTest {
     @Test
+    @DisplayName("객체 생성 시, 스트링 타입 배열을 입력 받고 이를 Ball 객체로 만들어 리스트로 저장한다.")
+    void createBalls1() {
+        //given
+        String[] inputtedBallsNumbers = new String[]{"1","2","3"};
+        List<Integer> expectedBallsNumbers = Arrays.asList(1, 2, 3);
+
+        //when
+        Balls actualBalls = new Balls(inputtedBallsNumbers);
+
+        //then
+        assertThat(actualBalls).isEqualTo(new Balls(expectedBallsNumbers));
+    }
+
+    @Test
     @DisplayName("객체 생성 시, 숫자 리스트를 입력 받고 이를 Ball 객체로 만들어 리스트로 저장한다.")
-    void createBalls() {
+    void createBalls2() {
         //given
         List<Integer> inputtedBallsNumbers = Arrays.asList(1, 2, 3);
         List<Integer> expectedBallsNumbers = Arrays.asList(1, 2, 3);
@@ -44,7 +58,7 @@ class BallsTest {
 
         //then
         assertAll(
-                () -> assertThat(actualBalls.getBallPosition(0)).   isEqualTo(0),
+                () -> assertThat(actualBalls.getBallPosition(0)).isEqualTo(0),
                 () -> assertThat(actualBalls.getBallPosition(1)).isEqualTo(1),
                 () -> assertThat(actualBalls.getBallPosition(2)).isEqualTo(2)
         );
