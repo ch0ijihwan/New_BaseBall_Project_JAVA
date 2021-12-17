@@ -39,7 +39,8 @@ public class Balls {
     }
 
     public int getBallPosition(int index) {
-        return threeBalls.get(index).getBallPositionValue();
+        return threeBalls.get(index)
+                .getBallPositionValue();
     }
 
     @Override
